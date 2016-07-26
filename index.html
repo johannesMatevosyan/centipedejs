@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Centipede Gallery Plugin</title>
+</head>
+<body>
+    <h1 class="head"><span>Hovhannes Matevosyan</span></h1>
+    <div class="wrapper">
+        <h2 class="title">Centipede is jQuery slider plugin</h2>
+        <div class="wrap_gallery">
+            <div id="come_id_val" class="some_classRR"></div>
+        </div>
+
+        <section class="features">
+            <h3>Features</h3>
+            <ul class="features_list">
+                <li><span>Easily configurable by changing options</span></li>
+                <li><span>No external dependencies, apart from jQuery</span></li>
+                <li><span>Compact size, only 4kb</span></li>
+            </ul>
+        </section>
+
+        <section class="browser_support">
+            <h3>Browser support</h3>
+            <ul class="browser_support_list">
+                <li><span>Firefox</span></li>
+                <li><span>Safari</span></li>
+                <li><span>Chrome</span></li>
+                <li><span>Internet Explorer 7+</span></li>
+                <li><span>Opera</span></li>
+            </ul>
+        </section>
+        <section class="how_to_use">
+            <h3>How to use</h3>
+            <p class="how_to_use_desc">
+                First of all you need to locate image according to their sizes. Thus, large images should be grouped together in one folder whereas small images should be grouped into another.
+                After that the corresponding paths to that folders are needed.
+            </p>
+        </section>
+        <section class="installation">
+            <h3>Installation</h3>
+            <ul class="installation_list">
+                <li>Include the CSS at the top of your page in your <head> tag:</li>
+                <li>
+                    <pre class="cnt_code">
+                        <code>
+                            <span class="cnt_attr"><</span>link <span class="cnt_attr">href</span>=<span class="cnt_string">"path/to/centipede.css"</span> rel=<span class="cnt_string">"stylesheet"</span>>
+                        </code>
+                    </pre>
+                </li>
+                <li>Make sure to include jQuery in your page:</li>
+                <li>
+                     <pre class="cnt_code">
+                        <code>
+                            <span class="cnt_attr"><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
+                        </code>
+                    </pre>
+                </li>
+
+                <li>Include the Javascript at the bottom of your page before the closing < /body> tag:</li>
+                <li>
+                    <pre class="cnt_code">
+                        <code>
+                            <span class="cnt_attr"><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
+                        </code>
+                    </pre>
+                </li>
+                <li>Initialize Centipede.js</li>
+                <li>
+                     <pre class="cnt_code">
+                        <code>$(<span class="cnt_string">' .your_element '</span>).centipede();</code>
+                     </pre>
+                </li>
+            </ul>
+        </section>
+
+        <section class="options">
+            <h3>Options</h3>
+
+            <pre class="cnt_code">
+                <code>$(<span class="cnt_string">' .your_element '</span>).centipede({
+                    <div class="options_js">
+                        <ul>
+                            <li><span class="options_js_keys">alt&nbsp;:  </span><span class="options_js_val">&nbsp;"My Alt"</span>,</li>
+                            <li><span class="options_js_keys">fade&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>,</li>
+                            <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;true</span>,</li>
+                            <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;10</span>, </li>
+                            <li><span class="options_js_keys">lg_img_path&nbsp;: </span><span class="options_js_val">&nbsp;'img/centipede/large/large'</span>,</li>
+                            <li><span class="options_js_keys">sm_img_path&nbsp;: </span><span class="options_js_val">&nbsp;'img/centipede/small/small'</span>,</li>
+                            <li><span class="options_js_keys">lg_img_type&nbsp;: </span><span class="options_js_val">&nbsp;'jpg'</span>,</li>
+                            <li><span class="options_js_keys">sm_img_type&nbsp;: </span><span class="options_js_val">&nbsp;'jpg'</span>,</li>
+                            <li><span class="options_js_keys">count&nbsp;: </span><span class="options_js_val">8</span></li>
+                        </ul>
+                    </div>
+                    });
+                </code>
+             </pre>
+
+            <table class="options_list">
+                <tr>
+                    <td><h4>Option</h4></td>
+                    <td><h4>Default</h4></td>
+                    <td><h4>Description</h4></td>
+                </tr>
+                <tr>
+                    <td class="key">alt:</td>
+                    <td class="default">"My Image"</td>
+                    <td class="value">Set the <span class="selected">alt</span> attribute for slider's images, this will improve semantics</td>
+                </tr>
+                <tr>
+                    <td class="key">fade:</td>
+                    <td class="default">false</td>
+                    <td class="value">If you want switch images with fade effect just set <span class="selected">fade</span> to <span class="selected">true</span>  </td>
+                </tr>
+                <tr>
+                    <td class="key">hover:</td>
+                    <td class="default">false</td>
+                    <td class="value">If true the opacity effect will appear on thumbnail images while mouse over event</td>
+                </tr>
+                <tr>
+                    <td class="key">mrg:</td>
+                    <td class="default">margin-right: 5px</td>
+                    <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
+                </tr>
+                <tr>
+                    <td class="key">lg_img_path:</td>
+                    <td class="default"></td>
+                    <td class="value">Path to the large images <span class="selected">'images/centipede/large-images-folder'</span> </td>
+                </tr>
+                <tr>
+                    <td class="key">sm_img_path:</td>
+                    <td class="default"></td>
+                    <td class="value">Path to the thumbnails <span class="selected">'images/centipede/thumbnails-folder'</span></td>
+                </tr>
+                <tr>
+                    <td class="key">lg_img_type:</td>
+                    <td class="default">".jpg"</td>
+                    <td class="value">Define extension for the large images</td>
+                </tr>
+                <tr>
+                    <td class="key">sm_img_type:</td>
+                    <td class="default">".jpg"</td>
+                    <td class="value">Define extension for the thumbnails images</td>
+                </tr>
+                <tr>
+                    <td class="key">count</td>
+                    <td class="default">6</td>
+                    <td class="value">Number of thumbnails you want to have in slider</td>
+                </tr>
+            </table>
+        </section>
+        <section class="license">
+            <h3>License</h3>
+        </section>
+    </div>
+
+
+    <script src="js/jquery/jquery-2.1.3.min.js"></script>
+    <script src="js/centipede.js"></script>
+</body>
+</html>
