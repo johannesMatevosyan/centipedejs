@@ -53,14 +53,27 @@ function build_gallery(centipede){
     $(centipede.main_div).append(small_img);
     var img = $('<img />', {
         src: centipede.lg_img_path + centipede.number + centipede.dot + centipede.lg_img_type,
-        alt: centipede.alt
     });
     img.appendTo($(centipede.main_div + centipede.blank + centipede.dot + centipede.large_item_class));
-    for(centipede.number; centipede.number <= centipede.count; centipede.number++){
-        var content = $('<div class="' + centipede.thumbs +'">').append(
-            '<img src="' + centipede.sm_img_path + centipede.number + centipede.dot + centipede.sm_img_type +'">'
-        );
-        $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class).append(content);
+
+    if(centipede.count == centipede.alt.length){
+        for(centipede.number; centipede.number <= centipede.count; centipede.number++){
+            var content = $('<div class="' + centipede.thumbs +'">').append(
+                '<img src="' + centipede.sm_img_path + centipede.number + centipede.dot + centipede.sm_img_type +'" alt="' + centipede.alt[centipede.number - 1] + '">'
+            );
+            $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class).append(content);
+        }
+    }else if((centipede.count - centipede.alt.length) > 0){
+        var missing_alts = centipede.count - centipede.alt.length;
+        for(var add_alt = 0; add_alt <= missing_alts; add_alt++){
+            centipede.alt.push('Alt');
+        }
+        for(centipede.number; centipede.number <= centipede.count; centipede.number++){
+            var content = $('<div class="' + centipede.thumbs +'">').append(
+                '<img src="' + centipede.sm_img_path + centipede.number + centipede.dot + centipede.sm_img_type +'" alt="' + centipede.alt[centipede.number - 1] + '">'
+            );
+            $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class).append(content);
+        }
     }
 }
 
@@ -93,6 +106,7 @@ function set_image_sizes(centipede){
 function change_image(centipede){
     $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class +
     centipede.blank + centipede.dot + centipede.thumbs + centipede.selected_img).addClass(centipede.active_class);
+
     $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class + centipede.blank + centipede.dot + centipede.thumbs).on('click', function(){
 
         var slash = '/';
