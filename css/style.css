@@ -48,7 +48,7 @@ body{
     width: 80%;
     margin: 40px auto;
 }
-.title{
+.main_title{
     margin: 40px auto;
     text-align: center;
     font-size: 18px;
@@ -65,6 +65,9 @@ section h3{
     border-bottom: 1px solid #eaeaea;
     padding-bottom: 5px;
     margin-bottom: 20px;
+}
+section .section_content{
+    padding: 0 0 0 5px;
 }
 .selected{
     font-family: 'latoblack';
