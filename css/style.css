@@ -46,7 +46,23 @@ body{
 .wrap_gallery {
     display: block;
     width: 80%;
-    margin: 40px auto;
+    margin: 40px auto 5px;
+}
+#photographer{
+    display: block;
+    width: 80%;
+    text-align: right;
+    margin: 0px auto 30px;
+    font-size: 14px;
+    font-family: 'latoitalic';
+    font-weight: normal;
+}
+#photographer a{
+    color: #07a;
+    font-size: 14px;
+    font-family: 'latoitalic';
+    font-weight: normal;
+    text-transform: none;
 }
 .main_title{
     margin: 40px auto;
@@ -67,18 +83,16 @@ section h3{
     margin-bottom: 20px;
 }
 section .section_content{
-    padding: 0 0 0 5px;
+    padding: 0 5px 0 5px;
 }
 .selected{
     font-family: 'latoblack';
     font-weight: normal;
 }
-
 .browser_support_list li{
     list-style-type: disc;
     margin-left: 20px;
 }
-
 pre.cnt_code{
     margin: 10px 0 20px 0;
     background-color: whitesmoke;
@@ -86,7 +100,6 @@ pre.cnt_code{
     padding: 6px 5px 8px 25px;
     white-space: nowrap;
 }
-
 pre.cnt_code code{
     background-color: whitesmoke;
     border-radius: 4px;
@@ -96,7 +109,6 @@ pre.cnt_code code{
     position: relative;
     white-space: nowrap;
 }
-
 pre.cnt_code code span{
     color: #333333;
 }
@@ -127,26 +139,25 @@ pre.cnt_code code .options_js_val{
     font-size: 12px;
     font-family: 'latoregular';
 }
-
 .options_list tr td{
     vertical-align: top;
     padding: 0 5px 8px 5px;
 }
 
-.options_list .key{
+.options_list tr td.key{
     font-size: 14px;
     font-family: 'latoregular';
     font-weight: normal;
     line-height: 20px;
 }
-.options_list .default{
+.options_list tr td.default{
     font-size: 14px;
     font-family: 'latoregular';
     font-weight: normal;
     line-height: 20px;
     min-width: 120px;
 }
-.options_list .value{
+.options_list tr td.value{
     font-size: 14px;
     font-family: 'latoregular';
     font-weight: normal;
@@ -198,3 +209,5 @@ pre.cnt_code code .options_js_val{
     height: 100%; }
 #centipede .small_item .thumbnail_item:hover img {
     opacity: 0.7; }
+
+
