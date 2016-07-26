@@ -57,7 +57,7 @@ function build_gallery(centipede){
     });
     img.appendTo($(centipede.main_div + centipede.blank + centipede.dot + centipede.large_item_class));
     for(centipede.number; centipede.number <= centipede.count; centipede.number++){
-        var content = $('<a href="#" class="' + centipede.thumbs +'">').append(
+        var content = $('<div class="' + centipede.thumbs +'">').append(
             '<img src="' + centipede.sm_img_path + centipede.number + centipede.dot + centipede.sm_img_type +'">'
         );
         $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class).append(content);

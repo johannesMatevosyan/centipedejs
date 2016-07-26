@@ -180,7 +180,9 @@ pre.cnt_code code .options_js_val{
 #centipede .small_item .thumbnail_item {
     float: left;
     position: relative;
-    border: 4px solid #ffffff; }
+    border: 4px solid #ffffff;
+    cursor: pointer;
+}
 #centipede .small_item .thumbnail_item:first-child {
      margin-left: 0 !important;
 }
