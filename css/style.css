@@ -175,26 +175,43 @@ pre.cnt_code code .options_js_val{
     border: 5px solid #444;
     width: 100%;
 }
+#gallery .enlarged_item {
+    position: relative;
+}
 #gallery .enlarged_item img {
     display: block;
     width: 100%;
     height: 100%;
 }
-#gallery .small_items .item {
+#gallery .enlarged_item .centipede_prev,
+#gallery .enlarged_item .centipede_next {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+}
+#gallery .enlarged_item .centipede_prev {
+    left: 0;
+    border: 1px solid red;
+}
+#gallery .enlarged_item .centipede_next {
+    right: 0;
+    border: 1px solid red;
+}
+#gallery .thumbnails .item {
     float: left;
     position: relative;
     border: 4px solid #cc0;
     cursor: pointer;
 }
 
-#gallery .small_items .item img {
+#gallery .thumbnails .item img {
     display: block;
     width: 100%;
     height: 100%;
 }
-#gallery .small_items img.img_opacity:hover {
+#gallery .thumbnails img.img_opacity:hover {
     opacity: 0.7;
 }
-#gallery .small_items .item.active {
+#gallery .thumbnails .item.active {
     border: 4px solid #ee3023;
 }

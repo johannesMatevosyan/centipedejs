@@ -12,7 +12,7 @@
         <div class="wrap_gallery">
             <div id="come_id_val" class="some_classRR"></div>
             <div id="gallery">
-                <div class="small_items">
+                <div class="thumbnails">
                     <div class="item">
                         <img src="img/new_gal/1.jpg" alt="Gallery 1"/>
                     </div>
@@ -114,7 +114,7 @@
                     <li>Initialize Centipede.js</li>
                     <li>
                      <pre class="cnt_code">
-                        <code>$(<span class="cnt_string">' .your_element '</span>).centipede();</code>
+                        <code>$(<span class="cnt_string">' #centipede '</span>).centipede();</code>
                      </pre>
                     </li>
                 </ul>
@@ -124,12 +124,13 @@
             <h3>Options</h3>
             <div class="section_content">
                 <pre class="cnt_code">
-                    <code>$(<span class="cnt_string">' .your_element '</span>).centipede({
+                    <code>$(<span class="cnt_string">' #centipede '</span>).centipede({
                         <div class="options_js">
                             <ul>
                                 <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;true</span>,</li>
                                 <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;10</span>, </li>
-                                <li><span class="options_js_keys">count&nbsp;: </span><span class="options_js_val">8</span></li>
+                                <li><span class="options_js_keys">navigation&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>, </li>
+                                <li><span class="options_js_keys">navigationText&nbsp;:  </span><span class="options_js_val">&nbsp;["prev","next"]</span>, </li>
                             </ul>
                         </div>
                         });
@@ -152,11 +153,6 @@
                         <td class="key">mrg:</td>
                         <td class="default">margin-right: 5px</td>
                         <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
-                    </tr>
-                    <tr>
-                        <td class="key">count</td>
-                        <td class="default">6</td>
-                        <td class="value">Number of thumbnails you want to have in slider</td>
                     </tr>
                 </table>
             </div>
@@ -181,7 +177,8 @@
             $('#gallery').centipede({
                 hover: true,
                 mrg: 2,
-                count: 6
+                navigation: true,
+                navigationText: ["Prev","Next"],
             });
         });
     </script>

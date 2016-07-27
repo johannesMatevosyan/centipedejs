@@ -4,23 +4,29 @@ $( document ).ready(function() {
         $.fn.centipede = function(options){
             var settings = $.extend({
                 target : this.selector,
+                navigation: true,
+                navigationText: ["back","forward"],
                 hover: true,
                 mrg : 5,
-                count : 4
             }, options );
+
+            console.log(settings.navigationText);
 
             var centipede = {
                 target: settings.target,
                 active_class : "active",
                 hover: settings.hover,
+                navigation: settings.navigation,
+                navigationText: settings.navigationText,
                 mrg: settings.mrg,
-                count : $(settings.target + ' .small_items').find('.item').length, //settings.target + ' .small_items',
+                count : $(settings.target + ' .thumbnails').find('.item').length, //settings.target + ' .thumbnails',
                 dot : '.',
                 blank : ' '
             };
 
             set_css(centipede);
             change_image(centipede);
+            set_navigation(centipede);
 
             return this;
         };
@@ -56,6 +62,7 @@ function set_css(centipede){
     }
 
 }
+
 // swap images after click
 function change_image(centipede){
     var active_item_src;
@@ -74,7 +81,7 @@ function change_image(centipede){
 
             active_item_src = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('src');
 
-            $(this).closest('.small_items').siblings('.enlarged_item').find('img').fadeOut(400, function() {
+            $(this).closest('.thumbnails').siblings('.enlarged_item').find('img').fadeOut(400, function() {
                 $(this).attr('src', active_item_src);
             }).fadeIn(400);
 
@@ -84,5 +91,14 @@ function change_image(centipede){
         return false;
     });
 
+}
+// set navigation
+function set_navigation(centipede){
 
+    console.log(centipede.navigation);
+    if(centipede.navigation){
+        $(centipede.target + centipede.blank + '.enlarged_item').append('<div class="centipede_nav">' +
+            '<div class="centipede_prev">' + centipede.navigationText[0] + '</div><div class="centipede_next">' + centipede.navigationText[1] + '</div>' +
+            '</div>');
+    }
 }
