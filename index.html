@@ -11,6 +11,26 @@
         <h2 class="main_title">Centipede is jQuery slider plugin</h2>
         <div class="wrap_gallery">
             <div id="come_id_val" class="some_classRR"></div>
+            <div id="gallery">
+                <div class="small_items">
+                    <div class="item">
+                        <img src="img/new_gal/1.jpg" alt="Gallery 1"/>
+                    </div>
+                    <div class="item">
+                        <img src="img/new_gal/2.jpg" alt="Gallery 2"/>
+                    </div>
+                    <div class="item">
+                        <img src="img/new_gal/3.jpg" alt="Gallery 3"/>
+                    </div>
+                    <div class="item">
+                        <img src="img/new_gal/4.jpg" alt="Gallery 4"/>
+                    </div>
+                    <div class="item">
+                        <img src="img/new_gal/2.jpg" alt="Gallery 4"/>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <span id="photographer">Photos by <a href="https://www.facebook.com/karen.nersisyan.5?fref=ts">Karen Nersisyan</a></span>
         <section class="features">
@@ -59,20 +79,37 @@
                     </li>
                     <li>Make sure to include jQuery in your page:</li>
                     <li>
-                     <pre class="cnt_code">
-                        <code>
-                            <span class="cnt_attr"><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
-                        </code>
-                    </pre>
+                        <pre class="cnt_code">
+                            <code>
+                                <span class="cnt_attr"><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
+                            </code>
+                        </pre>
                     </li>
 
                     <li>Include the Javascript at the bottom of your page before the closing < /body> tag:</li>
                     <li>
-                    <pre class="cnt_code">
-                        <code>
-                            <span class="cnt_attr"><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
-                        </code>
-                    </pre>
+                        <pre class="cnt_code">
+                            <code>
+                                <span><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
+                            </code>
+                        </pre>
+                    </li>
+                    <li>Write your HTML:</li>
+                    <li>
+                        <pre class="cnt_code">
+                            <code>
+                                <span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"centipede"</span> class=<span class="cnt_string">"centipede"</span>>
+                                <div class="cnt_html">
+                                    <div> <span class="cnt_attr"><span><</span>div></span> Your Content <span><</span> <span class="cnt_attr">/div></span> </div>
+                                    <div> <span class="cnt_attr"><span><</span>div></span> Your Content <span><</span> <span class="cnt_attr">/div></span> </div>
+                                    <div> <span class="cnt_attr"><span><</span>div></span> Your Content <span><</span> <span class="cnt_attr">/div></span> </div>
+                                    <div> <span class="cnt_attr"><span><</span>div></span> Your Content <span><</span> <span class="cnt_attr">/div></span> </div>
+                                    <div> <span class="cnt_attr"><span><</span>div></span> Your Content <span><</span> <span class="cnt_attr">/div></span> </div>
+                                    <div> <span class="cnt_attr"><span><</span>div></span> ... <span><</span> <span class="cnt_attr">/div></span> </div>
+                                </div>
+                                <span><</span>/div>
+                            </code>
+                        </pre>
                     </li>
                     <li>Initialize Centipede.js</li>
                     <li>
@@ -90,14 +127,8 @@
                     <code>$(<span class="cnt_string">' .your_element '</span>).centipede({
                         <div class="options_js">
                             <ul>
-                                <li><span class="options_js_keys">alt&nbsp;:  </span><span class="options_js_val">&nbsp;["Green Leave", "Sun", "Clouds", "Fireworks", "Blue Mountains", "Flags"]</span>,</li>
-                                <li><span class="options_js_keys">fade&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>,</li>
                                 <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;true</span>,</li>
                                 <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;10</span>, </li>
-                                <li><span class="options_js_keys">lg_img_path&nbsp;: </span><span class="options_js_val">&nbsp;'img/centipede/large/large'</span>,</li>
-                                <li><span class="options_js_keys">sm_img_path&nbsp;: </span><span class="options_js_val">&nbsp;'img/centipede/small/small'</span>,</li>
-                                <li><span class="options_js_keys">lg_img_type&nbsp;: </span><span class="options_js_val">&nbsp;'jpg'</span>,</li>
-                                <li><span class="options_js_keys">sm_img_type&nbsp;: </span><span class="options_js_val">&nbsp;'jpg'</span>,</li>
                                 <li><span class="options_js_keys">count&nbsp;: </span><span class="options_js_val">8</span></li>
                             </ul>
                         </div>
@@ -113,16 +144,6 @@
                         <td><h4>Description</h4></td>
                     </tr>
                     <tr>
-                        <td class="key">alt:</td>
-                        <td class="default"></td>
-                        <td class="value">This option allows to set the <span class="selected">alt</span> attribute for each image individually by adding array values per image.</td>
-                    </tr>
-                    <tr>
-                        <td class="key">fade:</td>
-                        <td class="default">false</td>
-                        <td class="value">If you want to switch images with fade effect just set this option to <span class="selected">true</span>  </td>
-                    </tr>
-                    <tr>
                         <td class="key">hover:</td>
                         <td class="default">false</td>
                         <td class="value">You can add opacity effect on thumbnail images while mouse over event by setting this option to <span class="selected">true</span></td>
@@ -131,26 +152,6 @@
                         <td class="key">mrg:</td>
                         <td class="default">margin-right: 5px</td>
                         <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
-                    </tr>
-                    <tr>
-                        <td class="key">lg_img_path:</td>
-                        <td class="default"></td>
-                        <td class="value">Path to the large images <span class="selected">'images/centipede/large-images-folder'</span> </td>
-                    </tr>
-                    <tr>
-                        <td class="key">sm_img_path:</td>
-                        <td class="default"></td>
-                        <td class="value">Path to the thumbnails <span class="selected">'images/centipede/thumbnails-folder'</span></td>
-                    </tr>
-                    <tr>
-                        <td class="key">lg_img_type:</td>
-                        <td class="default">".jpg"</td>
-                        <td class="value">Define extension for the large images</td>
-                    </tr>
-                    <tr>
-                        <td class="key">sm_img_type:</td>
-                        <td class="default">".jpg"</td>
-                        <td class="value">Define extension for the thumbnails images</td>
                     </tr>
                     <tr>
                         <td class="key">count</td>
@@ -177,15 +178,9 @@
     <script src="js/centipede.js"></script>
     <script>
         $( document ).ready(function() {
-            $('.some_classRR').centipede({
-                alt: ["Green Leave", "Sun", "Clouds", "Fireworks"],
-                fade: true,
+            $('#gallery').centipede({
                 hover: true,
-                mrg: 8,
-                lg_img_path: 'img/centipede/large/large',
-                sm_img_path: 'img/centipede/small/small',
-                lg_img_type: 'jpg',
-                sm_img_type: 'jpg',
+                mrg: 2,
                 count: 6
             });
         });

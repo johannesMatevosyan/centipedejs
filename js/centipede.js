@@ -1,141 +1,88 @@
 $( document ).ready(function() {
+
     (function($){
         $.fn.centipede = function(options){
             var settings = $.extend({
-                alt : "My Alt",
-                fade: true,
+                target : this.selector,
                 hover: true,
                 mrg : 5,
-                lg_img_path : 'img/centipede/large/large',
-                sm_img_path : 'img/centipede/small/small',
-                lg_img_type : 'jpg',
-                sm_img_type : 'jpg',
                 count : 4
             }, options );
-            var get_id = this.selector;
-            $(get_id).append('<div id="centipede"></div>')
 
             var centipede = {
-                main_div : "#centipede",
-                large_item_class : "large_item",
-                small_item_class : "small_item",
+                target: settings.target,
                 active_class : "active",
-                selected_img : ":first",
-                thumbs : "thumbnail_item",
-                large_img : "large_item",
-                small_img : "small_item",
-                alt : settings.alt,
-                fade: settings.fade,
                 hover: settings.hover,
                 mrg: settings.mrg,
-                lg_img_path: settings.lg_img_path,
-                sm_img_path: settings.sm_img_path,
-                lg_img_type: settings.lg_img_type,
-                sm_img_type: settings.sm_img_type,
-                count : settings.count,
-                number : 1,
+                count : $(settings.target + ' .small_items').find('.item').length, //settings.target + ' .small_items',
                 dot : '.',
                 blank : ' '
             };
-            build_gallery(centipede);
-            set_image_sizes(centipede);
+
+            set_css(centipede);
             change_image(centipede);
+
             return this;
         };
     }(jQuery));
 });
 
-// build gallery dom
-function build_gallery(centipede){
-    var large_img = $("<div>", {class: centipede.large_img});
-    var small_img = $("<div>", {class: centipede.small_img});
-    $(centipede.main_div).append(large_img);
-    $(centipede.main_div).append(small_img);
-    var img = $('<img />', {
-        src: centipede.lg_img_path + centipede.number + centipede.dot + centipede.lg_img_type,
-    });
-    img.appendTo($(centipede.main_div + centipede.blank + centipede.dot + centipede.large_item_class));
-
-    if(centipede.count == centipede.alt.length){
-        for(centipede.number; centipede.number <= centipede.count; centipede.number++){
-            var content = $('<div class="' + centipede.thumbs +'">').append(
-                '<img src="' + centipede.sm_img_path + centipede.number + centipede.dot + centipede.sm_img_type +'" alt="' + centipede.alt[centipede.number - 1] + '">'
-            );
-            $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class).append(content);
-        }
-    }else if((centipede.count - centipede.alt.length) > 0){
-        var missing_alts = centipede.count - centipede.alt.length;
-        for(var add_alt = 0; add_alt <= missing_alts; add_alt++){
-            centipede.alt.push('Alt');
-        }
-        for(centipede.number; centipede.number <= centipede.count; centipede.number++){
-            var content = $('<div class="' + centipede.thumbs +'">').append(
-                '<img src="' + centipede.sm_img_path + centipede.number + centipede.dot + centipede.sm_img_type +'" alt="' + centipede.alt[centipede.number - 1] + '">'
-            );
-            $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class).append(content);
-        }
-    }
-}
 
 // set image dimensions
-function set_image_sizes(centipede){
+function set_css(centipede){
     // set width and height of small images
-    var thumb_row_w = $(centipede.main_div).width();
-    var small_img_w;
-    var img_right_margin = centipede.mrg;
-    if (img_right_margin == 0) {
-        small_img_w = thumb_row_w / centipede.count;
-        $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class + centipede.blank + centipede.dot + centipede.thumbs).css({
-            'width' : small_img_w,
-            'height' : small_img_w
-        });
-    }else if(img_right_margin >= 0){
-        var add_margin = img_right_margin/(centipede.count - 1);
-        small_img_w = (thumb_row_w / centipede.count) - img_right_margin;
+    var gal_thumb_row_w = $(centipede.target).width();
+    var gal_small_img_w;
+    var gal_img_right_margin = centipede.mrg;
 
-        $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class + centipede.blank + centipede.dot + centipede.thumbs).css({
-            'width' : small_img_w,
-            'height' : small_img_w
+    console.log(centipede.mrg);
+
+    if(gal_img_right_margin >= 0){
+        var gal_add_margin = gal_img_right_margin/(centipede.count - 1);
+        gal_small_img_w = (gal_thumb_row_w / centipede.count) - gal_img_right_margin;
+
+        $(centipede.target + centipede.blank + '.item').css({
+            'width' : gal_small_img_w,
+            'height' : gal_small_img_w
         });
-        $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class + centipede.blank + centipede.dot + centipede.thumbs).not(':last').css({
-            'margin-right' : img_right_margin + add_margin
+        $(centipede.target + centipede.blank + '.item').not(':last').css({
+            'margin-right' : gal_img_right_margin + gal_add_margin
         });
     }
+
+    // set opacity
+    if(centipede.hover){
+        $(centipede.target + centipede.blank + '.item').find('img').addClass('img_opacity');
+    }
+
 }
 // swap images after click
 function change_image(centipede){
-    $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class +
-    centipede.blank + centipede.dot + centipede.thumbs + centipede.selected_img).addClass(centipede.active_class);
+    var active_item_src;
+    var active_item_alt;
 
-    $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class + centipede.blank + centipede.dot + centipede.thumbs).on('click', function(){
+    $(centipede.target + centipede.blank + '.item:first').addClass(centipede.active_class);
+    active_item_src = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('src');
+    active_item_alt = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('alt');
 
-        var slash = '/';
-        var img_path = $(this).find('img').attr('src');
-        var img_string =  img_path.split(slash);
-        var img_full_name = img_string[img_string.length - 1];
-        var img_name = img_full_name.split(centipede.dot)[0];
-        var img_ext = img_full_name.split(centipede.dot)[1];
-        var get_thumb = centipede.sm_img_path.slice(centipede.sm_img_path.lastIndexOf(slash) + 1, centipede.sm_img_path.length);
-        var img_num = img_name.split(get_thumb)[1];
-        if($(this).siblings().hasClass(centipede.active_class)){
+    $(centipede.target).prepend('<div class="enlarged_item"><img src="' + active_item_src + '" alt="' + active_item_alt +'"></div>');
+    $(centipede.target + centipede.blank + '.item').on('click', function(){
+
+        if(!$(this).hasClass(centipede.active_class)){
             $(this).siblings().removeClass(centipede.active_class);
             $(this).addClass(centipede.active_class);
+
+            active_item_src = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('src');
+
+            $(this).closest('.small_items').siblings('.enlarged_item').find('img').fadeOut(400, function() {
+                $(this).attr('src', active_item_src);
+            }).fadeIn(400);
+
+            $(this).addClass(centipede.active_class);
         }
-        if(centipede.fade){
-            $(this).parents(centipede.dot + centipede.small_item_class)
-                .siblings(centipede.dot + centipede.large_item_class)
-                .find('img').fadeOut(400, function(){
-                    $(centipede.main_div + centipede.blank + centipede.dot + centipede.small_item_class + centipede.blank + centipede.dot + centipede.thumbs)
-                        .parents(centipede.dot + centipede.small_img)
-                        .siblings(centipede.dot + centipede.large_img)
-                        .find('img').attr('src', centipede.lg_img_path + img_num + centipede.dot + img_ext);
-                }).fadeIn(400);
-        }else{
-            $(this).parents(centipede.dot + centipede.small_item_class)
-                .siblings(centipede.dot + centipede.large_item_class)
-                .find('img')
-                .attr('src', centipede.lg_img_path + img_num + centipede.dot + img_ext);
-        }
+
         return false;
     });
+
+
 }
