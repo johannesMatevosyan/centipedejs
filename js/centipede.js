@@ -69,6 +69,7 @@ function change_image(centipede){
     var active_item_alt;
 
     $(centipede.target + centipede.blank + '.item:first').addClass(centipede.active_class);
+
     active_item_src = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('src');
     active_item_alt = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('alt');
 
@@ -97,8 +98,48 @@ function set_navigation(centipede){
 
     console.log(centipede.navigation);
     if(centipede.navigation){
-        $(centipede.target + centipede.blank + '.enlarged_item').append('<div class="centipede_nav">' +
-            '<div class="centipede_prev">' + centipede.navigationText[0] + '</div><div class="centipede_next">' + centipede.navigationText[1] + '</div>' +
-            '</div>');
+        $(centipede.target + centipede.blank + '.enlarged_item').append('<div class="c_nav">' +
+            '<div class="c_prev">' + centipede.navigationText[0] + '</div><div class="c_next">' + centipede.navigationText[1] + '</div>' +
+        '</div>');
+
+        var get_div = $(this).parents('.enlarged_item').siblings('.thumbnails');
+
+        var init = $('.thumbnails').find('.item.active').index();
+        console.log('init ', init);
+        console.log(centipede.count);
+        $(centipede.target + centipede.blank + '.enlarged_item .c_prev').on('click', function(){
+
+            var index = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item.active').index();
+            console.log('index ', index);
+            if(index >= 1){
+
+                $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').removeClass('active');
+                $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index - 1).addClass('active');
+            }
+
+            console.log(centipede.count);
+        });
+        $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .c_next').on('click', function(){
+
+            var index = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item.active').index();
+            console.log('index ', index);
+
+            if(index == 0 || index == centipede.count - 1){
+                $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').removeClass('active');
+                $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item:first').next().addClass('active');
+            }else if(index < centipede.count){
+
+                $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').removeClass('active');
+                $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index + 1).addClass('active');
+            }
+
+
+            console.log(centipede.count);
+        });
+
+        $(centipede.target + centipede.blank + '.enlarged_item c_next').on('click', function(){
+
+        });
     }
+
 }

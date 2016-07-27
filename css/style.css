@@ -183,17 +183,17 @@ pre.cnt_code code .options_js_val{
     width: 100%;
     height: 100%;
 }
-#gallery .enlarged_item .centipede_prev,
-#gallery .enlarged_item .centipede_next {
+#gallery .enlarged_item .c_prev,
+#gallery .enlarged_item .c_next {
     position: absolute;
     top: 50%;
     cursor: pointer;
 }
-#gallery .enlarged_item .centipede_prev {
+#gallery .enlarged_item .c_prev {
     left: 0;
     border: 1px solid red;
 }
-#gallery .enlarged_item .centipede_next {
+#gallery .enlarged_item .c_next {
     right: 0;
     border: 1px solid red;
 }
