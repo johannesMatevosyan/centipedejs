@@ -133,7 +133,6 @@ function change_image(centipede){
 }
 
 
-
 function set_caption_text(centipede, caption_text){
 
     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();

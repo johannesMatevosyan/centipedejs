@@ -212,13 +212,10 @@ pre.cnt_code code .options_js_val{
     right: 0;
 }
 #gallery .thumbnails {
-     overflow: hidden;
-    font-size: 0.1rem;
-    letter-spacing: -1em;
-    word-spacing: -1em;
+    overflow: hidden;
 }
 #gallery .thumbnails .item {
-     float: left;
+    float: left;
     position: relative;
     border: 4px solid #cc0;
     cursor: pointer;
