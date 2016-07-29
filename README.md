@@ -35,7 +35,7 @@ Centipede is jQuery Slideshow
         <li>
         <pre class="cnt_code">
             <code>
-                <span class="cnt_attr"><</span>link <span class="cnt_attr">href</span>=<span class="cnt_string">"path/to/centipede.css"</span> rel=<span class="cnt_string">"stylesheet"</span>>
+                <link href="path/to/centipede.css" rel= "stylesheet">
             </code>
         </pre>
         </li>
