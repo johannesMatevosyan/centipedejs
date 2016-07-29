@@ -100,3 +100,37 @@ Centipede is jQuery Slideshow
         </code>
     </pre>
 </div>
+
+<table class="options_list">
+                    <tr>
+                        <td><h4>Option</h4></td>
+                        <td><h4>Default</h4></td>
+                        <td><h4>Description</h4></td>
+                    </tr>
+                    <tr>
+                        <td class="key">hover:</td>
+                        <td class="default">false</td>
+                        <td class="value">You can add opacity effect on thumbnail images while mouse over event by setting this option to <span class="selected">true</span></td>
+                    </tr>
+                    <tr>
+                        <td class="key">mrg:</td>
+                        <td class="default">margin-right: 5px</td>
+                        <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
+                    </tr>
+                    <tr>
+                        <td class="key">navigation:</td>
+                        <td class="default">false</td>
+                        <td class="value"></td>
+                    </tr>
+                    <tr>
+                        <td class="key">navigation_text:</td>
+                        <td class="default">["Prev","Next"]</td>
+                        <td class="value">Allows you to customize the HTML for the "Next"/"Prev" arrows, but the <span class="selected">navigation</span> should be set to true</td>
+                    </tr>
+                    <tr>
+                        <td class="key">caption:</td>
+                        <td class="default">false</td>
+                        <td class="value">It is possible to add a caption. Therefore <span class="selected">caption</span> should be set to true
+                            then divs with with a <span class="selected">c_caption</span> class should be added below each image placed inside <span class="selected">thumbnails</span> unordered list. </td>
+                    </tr>
+                </table>
