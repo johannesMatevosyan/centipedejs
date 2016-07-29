@@ -8,7 +8,7 @@
 <body>
     <h1 class="head"><span>Hovhannes Matevosyan</span></h1>
     <div class="wrapper">
-        <h2 class="main_title">Centipede is jQuery slider plugin</h2>
+        <h2 class="main_title">Centipede is jQuery Slideshow</h2>
         <div class="wrap_gallery">
             <div id="gallery">
                 <ul class="thumbnails">
@@ -140,7 +140,7 @@
                         <div class="options_js">
                             <ul>
                                 <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;true</span>,</li>
-                                <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;10</span>, </li>
+                                <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;5</span>, </li>
                                 <li><span class="options_js_keys">navigation&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>, </li>
                                 <li><span class="options_js_keys">navigation_text&nbsp;:  </span><span class="options_js_val">&nbsp;["prev","next"]</span>, </li>
                                 <li><span class="options_js_keys">caption&nbsp;:  </span><span class="options_js_val">&nbsp;false</span>, </li>
@@ -174,13 +174,14 @@
                     </tr>
                     <tr>
                         <td class="key">navigation_text:</td>
-                        <td class="default">false</td>
-                        <td class="value"></td>
+                        <td class="default">["Prev","Next"]</td>
+                        <td class="value">Allows you to customize the HTML for the "Next"/"Prev" arrows, but the <span class="selected">navigation</span> should be set to true</td>
                     </tr>
                     <tr>
-                        <td class="key">Caption:</td>
+                        <td class="key">caption:</td>
                         <td class="default">false</td>
-                        <td class="value"></td>
+                        <td class="value">It is possible to add a caption. Therefore <span class="selected">caption</span> should be set to true
+                            then divs with with a <span class="selected">c_caption</span> class should be added below each image placed inside <span class="selected">thumbnails</span> unordered list. </td>
                     </tr>
                 </table>
             </div>
@@ -206,7 +207,7 @@
                 hover: true,
                 mrg: 5,
                 navigation: true,
-                navigation_text: ["Prev","Next"],
+                navigation_text: ["Prev2","Next2"],
                 caption: true,
                 fade_effect: false,
             });
