@@ -10,25 +10,37 @@
     <div class="wrapper">
         <h2 class="main_title">Centipede is jQuery slider plugin</h2>
         <div class="wrap_gallery">
-            <div id="come_id_val" class="some_classRR"></div>
             <div id="gallery">
-                <div class="thumbnails">
-                    <div class="item">
+                <ul class="thumbnails">
+                    <li class="item">
                         <img src="img/new_gal/1.jpg" alt="Gallery 1"/>
-                    </div>
-                    <div class="item">
+                        <div class="c_caption">lorem Ipsum 1</div>
+                    </li>
+                    <li class="item">
                         <img src="img/new_gal/2.jpg" alt="Gallery 2"/>
-                    </div>
-                    <div class="item">
+                        <div class="c_caption">lorem Ipsum 2</div>
+                    </li>
+                    <li class="item">
                         <img src="img/new_gal/3.jpg" alt="Gallery 3"/>
-                    </div>
-                    <div class="item">
+                        <div class="c_caption">lorem Ipsum 3</div>
+                    </li>
+                    <li class="item">
                         <img src="img/new_gal/4.jpg" alt="Gallery 4"/>
-                    </div>
-                    <div class="item">
-                        <img src="img/new_gal/2.jpg" alt="Gallery 4"/>
-                    </div>
-                </div>
+                        <div class="c_caption">lorem Ipsum 4</div>
+                    </li>
+                    <li class="item">
+                        <img src="img/new_gal/5.jpg" alt="Gallery 5"/>
+                        <div class="c_caption">lorem Ipsum 5</div>
+                    </li>
+                    <li class="item">
+                        <img src="img/new_gal/6.jpg" alt="Gallery 6"/>
+                        <div class="c_caption">lorem Ipsum 6</div>
+                    </li>
+                    <li class="item">
+                        <img src="img/new_gal/7.jpg" alt="Gallery 7"/>
+                        <div class="c_caption">lorem Ipsum 7</div>
+                    </li>
+                </ul>
 
             </div>
         </div>
@@ -154,6 +166,21 @@
                         <td class="default">margin-right: 5px</td>
                         <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
                     </tr>
+                    <tr>
+                        <td class="key">navigation:</td>
+                        <td class="default">false</td>
+                        <td class="value"></td>
+                    </tr>
+                    <tr>
+                        <td class="key">navigationText:</td>
+                        <td class="default">false</td>
+                        <td class="value"></td>
+                    </tr>
+                    <tr>
+                        <td class="key">Caption:</td>
+                        <td class="default">false</td>
+                        <td class="value"></td>
+                    </tr>
                 </table>
             </div>
         </section>
@@ -176,9 +203,10 @@
         $( document ).ready(function() {
             $('#gallery').centipede({
                 hover: true,
-                mrg: 2,
+                mrg: 3,
                 navigation: true,
                 navigationText: ["Prev","Next"],
+                caption: true
             });
         });
     </script>

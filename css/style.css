@@ -177,17 +177,30 @@ pre.cnt_code code .options_js_val{
 }
 #gallery .enlarged_item {
     position: relative;
+    height: 400px;
 }
 #gallery .enlarged_item img {
     display: block;
     width: 100%;
     height: 100%;
 }
+#gallery .enlarged_item .show_caption {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50%;
+    background: white;
+    color: red;
+}
 #gallery .enlarged_item .c_prev,
 #gallery .enlarged_item .c_next {
     position: absolute;
     top: 50%;
     cursor: pointer;
+    padding: 2px 3px;
+    background: #ffffff;
+    color: red;
 }
 #gallery .enlarged_item .c_prev {
     left: 0;
@@ -197,17 +210,26 @@ pre.cnt_code code .options_js_val{
     right: 0;
     border: 1px solid red;
 }
+#gallery .thumbnails {
+    overflow: hidden;
+}
 #gallery .thumbnails .item {
     float: left;
     position: relative;
     border: 4px solid #cc0;
     cursor: pointer;
 }
-
 #gallery .thumbnails .item img {
     display: block;
     width: 100%;
     height: 100%;
+}
+#gallery .thumbnails .item .c_caption {
+    background: yellow;
+    color: red;
+    display: none;
+    padding: 3px 5px;
+    position: absolute;
 }
 #gallery .thumbnails img.img_opacity:hover {
     opacity: 0.7;
