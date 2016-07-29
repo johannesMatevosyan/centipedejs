@@ -134,3 +134,11 @@ Centipede is jQuery Slideshow
                             then divs with with a <span class="selected">c_caption</span> class should be added below each image placed inside <span class="selected">thumbnails</span> unordered list. </td>
                     </tr>
                 </table>
+<h3>Download</h3>
+<div class="section_content">
+    Download plugin
+</div>
+<h3>License</h3>
+<div class="section_content">
+    License content
+</div>
