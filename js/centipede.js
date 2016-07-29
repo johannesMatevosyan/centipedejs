@@ -5,19 +5,23 @@ $( document ).ready(function() {
             var settings = $.extend({
                 target : this.selector,
                 navigation: true,
-                navigationText: ["back","forward"],
+                navigation_text: ["back","forward"],
                 caption: false,
+                fade_effect: false,
                 hover: true,
                 mrg : 5
             }, options );
+
+            console.log(options);
 
             var centipede = {
                 target: settings.target,
                 active_class : "active",
                 hover: settings.hover,
                 navigation: settings.navigation,
-                navigationText: settings.navigationText,
+                navigation_text: settings.navigation_text,
                 caption: settings.caption,
+                fade_effect: settings.fade_effect,
                 mrg: settings.mrg,
                 count : $(settings.target + ' .thumbnails').find('.item').length, //settings.target + ' .thumbnails',
                 dot : '.',
@@ -68,6 +72,7 @@ function set_css(centipede){
 function change_image(centipede){
     var active_item_src;
     var active_item_alt;
+    var set_caption;
 
     $(centipede.target + centipede.blank + '.item:first').addClass(centipede.active_class);
 
@@ -75,6 +80,15 @@ function change_image(centipede){
     active_item_alt = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('alt');
 
     $(centipede.target).prepend('<div class="enlarged_item"><img src="' + active_item_src + '" alt="' + active_item_alt +'"></div>');
+
+    if(centipede.caption){
+        $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
+        set_caption = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('.c_caption').text();
+        $(centipede.target + centipede.blank + '.enlarged_item').find('.show_caption').text(set_caption);
+    }else{
+        $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
+    }
+
     $(centipede.target + centipede.blank + '.item').on('click', function(){
 
         if(!$(this).hasClass(centipede.active_class)){
@@ -82,12 +96,33 @@ function change_image(centipede){
             $(this).addClass(centipede.active_class);
 
             active_item_src = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('src');
+            active_item_alt = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('img').attr('alt');
 
-            $(this).closest('.thumbnails').siblings('.enlarged_item').find('img').fadeOut(400, function() {
-                $(this).attr('src', active_item_src);
-            }).fadeIn(400);
+            if(centipede.fade_effect){
+                console.log(centipede.fade_effect);
+                $(this).closest('.thumbnails').siblings('.enlarged_item').find('img').fadeOut(400, function() {
+                    $(this).attr({
+                        'src': active_item_src,
+                        'alt': active_item_alt
+                    });
+                }).fadeIn(400);
+                $(this).addClass(centipede.active_class);
+            }else{
+                $(this).closest('.thumbnails').siblings('.enlarged_item').find('img').attr({
+                    'src': active_item_src,
+                    'alt': active_item_alt
+                });
+                $(this).addClass(centipede.active_class);
+            }
 
-            $(this).addClass(centipede.active_class);
+            if(centipede.caption){
+                set_caption = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('.c_caption').text();
+                $(this).closest('.thumbnails').siblings('.enlarged_item').find('.show_caption').text(set_caption);
+            }else{
+                $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
+            }
+
+
         }
 
         return false;
@@ -99,7 +134,7 @@ function set_navigation(centipede){
 
     if(centipede.navigation){
         $(centipede.target + centipede.blank + '.enlarged_item').append('<div class="c_nav">' +
-            '<div class="c_prev">' + centipede.navigationText[0] + '</div><div class="c_next">' + centipede.navigationText[1] + '</div>' +
+            '<div class="c_prev">' + centipede.navigation_text[0] + '</div><div class="c_next">' + centipede.navigation_text[1] + '</div>' +
         '</div>');
 
         $(centipede.target + centipede.blank + '.enlarged_item .c_prev').on('click', function(){
@@ -116,6 +151,8 @@ function set_navigation(centipede){
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
                     var set_caption = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index).find('.c_caption').text();
                     $(this).closest('.enlarged_item').find('.show_caption').text(set_caption);
+                }else{
+                    $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                 }
             }
             if(index == 0){
@@ -130,6 +167,8 @@ function set_navigation(centipede){
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
                     var set_caption = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item:last').find('.c_caption').text();
                     $(this).closest('.enlarged_item').find('.show_caption').text(set_caption);
+                }else{
+                    $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                 }
             }
         });
@@ -143,11 +182,14 @@ function set_navigation(centipede){
                 var set_src = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index + 1).find('img').attr('src');
                 $(this).closest('.enlarged_item').find('img').attr('src', set_src);
 
+                // Set caption text
                 if(centipede.caption){
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
                     var set_caption = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index + 1).find('.c_caption').text();
                     $(this).closest('.enlarged_item').find('.show_caption').text(set_caption);
+                }else{
+                    $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                 }
             }
             if(index < centipede.count - 1 && index != 0){
@@ -156,11 +198,14 @@ function set_navigation(centipede){
                 var set_src = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index + 1).find('img').attr('src');
                 $(this).closest('.enlarged_item').find('img').attr('src', set_src);
 
+                // Set caption text
                 if(centipede.caption){
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
                     var set_caption = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index + 1).find('.c_caption').text();
                     $(this).closest('.enlarged_item').find('.show_caption').text(set_caption);
+                }else{
+                    $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                 }
             }
             if(index == centipede.count - 1 && index != 0){
@@ -170,11 +215,14 @@ function set_navigation(centipede){
                 var set_src = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item').eq(index).find('img').attr('src');
                 $(this).closest('.enlarged_item').find('img').attr('src', set_src);
 
+                // Set caption text
                 if(centipede.caption){
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                     $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
                     var set_caption = $(this).closest('.enlarged_item').siblings('.thumbnails').find('.item:first').eq(index).find('.c_caption').text();
                     $(this).closest('.enlarged_item').find('.show_caption').text(set_caption);
+                }else{
+                    $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item .show_caption').remove();
                 }
             }
         });

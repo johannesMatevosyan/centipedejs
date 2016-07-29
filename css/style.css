@@ -185,13 +185,14 @@ pre.cnt_code code .options_js_val{
     height: 100%;
 }
 #gallery .enlarged_item .show_caption {
-    display: inline-block;
     position: absolute;
     bottom: 0;
     left: 50%;
-    margin-left: -50%;
+    transform: translate(-50%, 0);
     background: white;
     color: red;
+    padding: 3px 5px;
+
 }
 #gallery .enlarged_item .c_prev,
 #gallery .enlarged_item .c_next {
@@ -225,11 +226,7 @@ pre.cnt_code code .options_js_val{
     height: 100%;
 }
 #gallery .thumbnails .item .c_caption {
-    background: yellow;
-    color: red;
     display: none;
-    padding: 3px 5px;
-    position: absolute;
 }
 #gallery .thumbnails img.img_opacity:hover {
     opacity: 0.7;
