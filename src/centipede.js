@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-
     (function($){
         $.fn.centipede = function(options){
             var settings = $.extend({
@@ -34,7 +33,6 @@ $( document ).ready(function() {
         };
     }(jQuery));
 });
-
 
 // set image dimensions
 function set_css(centipede){
