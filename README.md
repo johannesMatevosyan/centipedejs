@@ -82,3 +82,21 @@ Centipede is jQuery Slideshow
         </li>
     </ul>
 </div>
+
+<h3>Options</h3>
+<div class="section_content">
+    <pre class="cnt_code">
+        <code>$(<span class="cnt_string">' #centipede '</span>).centipede({
+            <div class="options_js">
+                <ul>
+                    <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;true</span>,</li>
+                    <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;5</span>, </li>
+                    <li><span class="options_js_keys">navigation&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>, </li>
+                    <li><span class="options_js_keys">navigation_text&nbsp;:  </span><span class="options_js_val">&nbsp;["prev","next"]</span>, </li>
+                    <li><span class="options_js_keys">caption&nbsp;:  </span><span class="options_js_val">&nbsp;false</span>, </li>
+                </ul>
+            </div>
+            });
+        </code>
+    </pre>
+</div>
