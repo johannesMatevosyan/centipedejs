@@ -119,7 +119,10 @@ pre.cnt_code code .cnt_string{
 pre.cnt_code code .cnt_html{
     margin:4px 0 0 22px;
 }
-pre.cnt_code code .cnt_html div{
+pre.cnt_code code .cnt_ul{
+    margin:4px 0 0 40px;
+}
+pre.cnt_code code .cnt_ul div{
     margin-bottom: 5px;
 }
 pre.cnt_code code .options_js{
