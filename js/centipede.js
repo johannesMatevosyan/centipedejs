@@ -42,28 +42,25 @@ $( document ).ready(function() {
 function set_css(centipede){
     // set width and height of small images
     var gal_thumb_row_w = $(centipede.target).width();
-    var gal_small_img_w;
-    var gal_img_right_margin = centipede.mrg;
+    var img_right_margin = centipede.mrg;
 
-    if(gal_img_right_margin >= 0){
-        var gal_add_margin = gal_img_right_margin/(centipede.count - 1);
-        gal_small_img_w = (gal_thumb_row_w / centipede.count) - gal_img_right_margin;
+    if(img_right_margin >= 0){
+        console.log('gal width ', gal_thumb_row_w);
+        var ul_w = $(centipede.target + ' .thumbnails').width();
+
+        var mrg = img_right_margin * (centipede.count - 1);
+        var img_w = (ul_w - mrg)/centipede.count;
 
         $(centipede.target + centipede.blank + '.thumbnails .item').css({
-            'width' : gal_small_img_w,
-            'height' : gal_small_img_w,
-            'margin-right' : gal_img_right_margin + gal_add_margin
+            'width' : img_w,
+            'height' : img_w,
+            'margin-right' : img_right_margin
         });
 
-        console.log('gal_img_right_margin ', gal_img_right_margin);
+        console.log('img_right_margin ', img_right_margin);
         $(centipede.target + centipede.blank + '.thumbnails .item:last-child').css({
             'margin-right' : 0
         });
-    }
-
-    // set opacity
-    if(centipede.hover){
-        $(centipede.target + centipede.blank + '.item').find('img').addClass('img_opacity');
     }
 
 }
@@ -81,6 +78,14 @@ function change_image(centipede){
 
     $(centipede.target).prepend('<div class="enlarged_item"><img src="' + active_item_src + '" alt="' + active_item_alt +'"></div>');
 
+
+    // set opacity
+    if(centipede.hover){
+        $(centipede.target + centipede.blank + '.enlarged_item').find('img').addClass('img_opacity');
+        $(centipede.target + centipede.blank + '.item').find('img').addClass('img_opacity');
+    }
+
+    // set caption
     if(centipede.caption){
         $(centipede.blank + centipede.target + centipede.blank + '.enlarged_item').append('<div class="show_caption"></div>');
         set_caption = $(centipede.target + centipede.blank + '.item' + centipede.dot + centipede.active_class).find('.c_caption').text();
