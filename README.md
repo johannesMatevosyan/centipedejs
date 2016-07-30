@@ -68,7 +68,7 @@ Include the Javascript at the bottom of your page before the closing < /body> ta
 ##### Write your HTML:
 
 ```html
-<pre>
+
     <div id="centipede" class="centipede"> 
         <ul class="cnt_ul">
             <li>Your Content </li>
@@ -79,14 +79,13 @@ Include the Javascript at the bottom of your page before the closing < /body> ta
             <li>... </li>
         </ul>
     </div>    
-</pre>
+
+``` 
+Initialize Centipede.js
+```js
+    $(<span class="cnt_string">' #centipede '</span>).centipede();    
 ```
-        Initialize Centipede.js
-         <pre class="cnt_code">
-            <code>
-$(<span class="cnt_string">' #centipede '</span>).centipede();
-            </code>
-         </pre>
+
 </div>
 
 <h3>Options</h3>
