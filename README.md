@@ -21,7 +21,8 @@ Centipede is jQuery Slideshow
     </ul>
 </div>
  <h3>How to use</h3>
-<div class="section_content">
+ 
+
     <p class="how_to_use_desc">
         First of all you need to locate image according to their sizes. Thus, large images should be grouped together in one folder whereas small images should be grouped into another.
         After that the corresponding paths to those folders are needed. That's all :) <br>
@@ -90,7 +91,6 @@ Initialize Centipede.js
     
 ```
 
-</div>
 
 <h3>Options</h3>
 
