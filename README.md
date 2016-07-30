@@ -43,8 +43,7 @@ Centipede is jQuery Slideshow
         <li>
             <pre class="cnt_code">
                 <code>
-                    <span><</span>script <span class="cnt_attr">src</span>=<span>"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
-                    </span>>
+<span><</span>script <span>src</span>=<span>"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
                 </code>
             </pre>
         </li>
