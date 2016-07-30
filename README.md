@@ -1,5 +1,4 @@
-# Centipede
-Centipede is jQuery Slideshow
+# Centipede jQuery Slideshow
 
 <h2>Features</h2>
 <div class="section_content">
