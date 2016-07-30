@@ -93,7 +93,7 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
 
    
 ```js
-    <pre>
+
        $(' #centipede ').centipede({
             hover :  true,
             mrg :  5,
@@ -101,7 +101,7 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
             navigation_text :  ["prev","next"],
             caption :  false,
         });
-    </pre>
+
 ```
 
 <table class="options_list">
