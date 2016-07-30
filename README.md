@@ -93,7 +93,13 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
 <div class="section_content">
     <pre class="cnt_code">
 ```js
-   // code for coloring
+   $(' #centipede ').centipede({
+        hover :  true,
+        mrg :  5,
+        navigation :  true,
+        navigation_text :  ["prev","next"],
+        caption :  false,
+    });
 ```
     </pre>
 </div>
