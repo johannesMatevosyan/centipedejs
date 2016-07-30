@@ -21,50 +21,15 @@ Centipede is jQuery Slideshow
     </ul>
 </div>
  <h3>How to use</h3>
- 
+ <div class="section_content">
 
-    <p class="how_to_use_desc">
-        First of all you need to locate image according to their sizes. Thus, large images should be grouped together in one folder whereas small images should be grouped into another.
-        After that the corresponding paths to those folders are needed. That's all :) <br>
-        In case you want to make some changes then the options are available below.
-    </p>
+<p class="how_to_use_desc">
+    First of all you need to locate image according to their sizes. Thus, large images should be grouped together in one folder whereas small images should be grouped into another.
+    After that the corresponding paths to those folders are needed. That's all :) <br>
+    In case you want to make some changes then the options are available below.
+</p>
 </div>
 <h3>Installation</h3>
-<div class="section_content">
-
-```html
-<ul id="days">
-    <li>Su</li>
-    <li>Mo</li>
-    <li>Tu</li>
-    <li>We</li>
-    <li>Th</li>
-    <li>Fr</li>
-    <li>Sa</li>
-</ul>
-```
-    
-        Include the CSS at the top of your page in your <head> tag:
-        <pre class="cnt_code">
-            <code>
-<span><</span>link href="path/to/centipede.css" rel=<span>"stylesheet"</span>>
-            </code>
-        </pre>
-        Make sure to include jQuery in your page:
-
-<pre class="cnt_code">
-    <code>
-<span><</span>script <span>src</span>=<span>"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
-    </code>
-</pre>
-
-Include the Javascript at the bottom of your page before the closing < /body> tag:
-
-<pre class="cnt_code">
-    <code>
-<span><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
-    </code>
-</pre>
 
 ##### Write your HTML:
 
