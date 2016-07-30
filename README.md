@@ -51,19 +51,19 @@ Centipede is jQuery Slideshow
         </pre>
         Make sure to include jQuery in your page:
 
-            <pre class="cnt_code">
-                <code>
+<pre class="cnt_code">
+    <code>
 <span><</span>script <span>src</span>=<span>"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
-                </code>
-            </pre>
+    </code>
+</pre>
 
-        Include the Javascript at the bottom of your page before the closing < /body> tag:
+Include the Javascript at the bottom of your page before the closing < /body> tag:
 
-            <pre class="cnt_code">
-                <code>
+<pre class="cnt_code">
+    <code>
 <span><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
-                </code>
-            </pre>
+    </code>
+</pre>
 
 ##### Write your HTML:
 
