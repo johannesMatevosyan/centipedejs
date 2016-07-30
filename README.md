@@ -45,7 +45,7 @@ Include the CSS at the top of your page in your tag:
     
 ```
 
-# Write your HTML:
+ Write your HTML:
 
 ```html
 
@@ -61,7 +61,7 @@ Include the CSS at the top of your page in your tag:
     </div>    
 
 ``` 
-# Add caption to the image:
+ Add caption to the image:
 
 ```html
 
@@ -81,7 +81,7 @@ Include the CSS at the top of your page in your tag:
 
 ```
 
-# Initialize Centipede.js
+ Initialize Centipede.js
 
 ```js
 
@@ -91,7 +91,6 @@ Include the CSS at the top of your page in your tag:
 
 
 <h3>Options</h3>
-
    
 ```js
 
