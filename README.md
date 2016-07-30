@@ -35,7 +35,7 @@ Centipede is jQuery Slideshow
         <li>
         <pre class="cnt_code">
             <code>
-                <span><</span>link href="path/to/centipede.css" rel=<span>"stylesheet"</span>>
+<span><</span>link href="path/to/centipede.css" rel=<span>"stylesheet"</span>>
             </code>
         </pre>
         </li>
@@ -51,7 +51,7 @@ Centipede is jQuery Slideshow
         <li>
             <pre class="cnt_code">
                 <code>
-                    <span><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
+<span><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
                 </code>
             </pre>
         </li>
@@ -59,18 +59,18 @@ Centipede is jQuery Slideshow
         <li>
             <pre class="cnt_code">
                 <code>
-                    <div><span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"centipede"</span> class=<span class="cnt_string">"centipede"</span>> </div>
-                    <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"thumbnails"</span>></div>
-                        <div class="cnt_ul">
-                            <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                            <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                            <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                            <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                            <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                            <div> <span class="cnt_attr"><span><</span>li></span> ... <span><</span> <span class="cnt_attr">/li></span> </div>
-                        </div>
-                    <div class="cnt_html"><span><</span>/ul></div>
-                    <span><</span>/div>
+<div><span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"centipede"</span> class=<span class="cnt_string">"centipede"</span>> </div>
+<div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"thumbnails"</span>></div>
+    <div class="cnt_ul">
+        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
+        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
+        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
+        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
+        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
+        <div> <span class="cnt_attr"><span><</span>li></span> ... <span><</span> <span class="cnt_attr">/li></span> </div>
+    </div>
+<div class="cnt_html"><span><</span>/ul></div>
+<span><</span>/div>
                 </code>
             </pre>
         </li>
