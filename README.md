@@ -55,9 +55,8 @@ Centipede is jQuery Slideshow
                 </code>
             </pre>
         </li>
-        <li>Write your HTML:</li>
-        <li>
-                ```html
+##### Write your HTML:
+```html
 <div><span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"centipede"</span> class=<span class="cnt_string">"centipede"</span>> </div>
 <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"thumbnails"</span>></div>
         <div class="cnt_ul">
@@ -70,8 +69,8 @@ Centipede is jQuery Slideshow
         </div>
 <div class="cnt_html"><span><</span>/ul></div>
 <span><</span>/div>
-                ```
-        </li>
+```
+```
         <li>Initialize Centipede.js</li>
         <li>
          <pre class="cnt_code">
