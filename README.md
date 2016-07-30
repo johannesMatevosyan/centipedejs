@@ -89,15 +89,13 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
 <div class="section_content">
     <pre class="cnt_code">
         <code>$(<span class="cnt_string">' #centipede '</span>).centipede({
-            <div class="options_js">
-                <ul>
-                    <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;true</span>,</li>
-                    <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;5</span>, </li>
-                    <li><span class="options_js_keys">navigation&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>, </li>
-                    <li><span class="options_js_keys">navigation_text&nbsp;:  </span><span class="options_js_val">&nbsp;["prev","next"]</span>, </li>
-                    <li><span class="options_js_keys">caption&nbsp;:  </span><span class="options_js_val">&nbsp;false</span>, </li>
-                </ul>
-            </div>
+                <div>
+                    <div><span>hover&nbsp;: </span><span>&nbsp;true</span>,</div>
+                    <div><span>mrg&nbsp;:  </span><span>&nbsp;5</span>, </div>
+                    <div><span>navigation&nbsp;:  </span><span>&nbsp;true</span>, </div>
+                    <div><span>navigation_text&nbsp;:  </span><span>&nbsp;["prev","next"]</span>, </div>
+                    <div><span>caption&nbsp;:  </span><span>&nbsp;false</span>, </div>
+                </div>
             });
         </code>
     </pre>
