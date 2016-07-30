@@ -92,16 +92,9 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
 <h3>Options</h3>
 <div class="section_content">
     <pre class="cnt_code">
-        <code>$(<span class="cnt_string">' #centipede '</span>).centipede({
-                <div>
-                    <div><span>hover&nbsp;: </span><span>&nbsp;true</span>,</div>
-                    <div><span>mrg&nbsp;:  </span><span>&nbsp;5</span>, </div>
-                    <div><span>navigation&nbsp;:  </span><span>&nbsp;true</span>, </div>
-                    <div><span>navigation_text&nbsp;:  </span><span>&nbsp;["prev","next"]</span>, </div>
-                    <div><span>caption&nbsp;:  </span><span>&nbsp;false</span>, </div>
-                </div>
-            });
-        </code>
+```js
+   // code for coloring
+```
     </pre>
 </div>
 
