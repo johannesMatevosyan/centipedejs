@@ -93,7 +93,7 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
 
    
 ```js
-    <pre class="cnt_code">
+    <pre>
        $(' #centipede ').centipede({
             hover :  true,
             mrg :  5,
