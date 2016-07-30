@@ -30,31 +30,29 @@ Centipede is jQuery Slideshow
 </div>
 <h3>Installation</h3>
 <div class="section_content">
-    <ul class="installation_list">
-        <li>Include the CSS at the top of your page in your <head> tag:</li>
-        <li>
+    
+        Include the CSS at the top of your page in your <head> tag:
         <pre class="cnt_code">
             <code>
 <span><</span>link href="path/to/centipede.css" rel=<span>"stylesheet"</span>>
             </code>
         </pre>
-        </li>
-        <li>Make sure to include jQuery in your page:</li>
-        <li>
+        Make sure to include jQuery in your page:
+
             <pre class="cnt_code">
                 <code>
 <span><</span>script <span>src</span>=<span>"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"</span>>
                 </code>
             </pre>
-        </li>
-        <li>Include the Javascript at the bottom of your page before the closing < /body> tag:</li>
-        <li>
+
+        Include the Javascript at the bottom of your page before the closing < /body> tag:
+
             <pre class="cnt_code">
                 <code>
 <span><</span>script <span class="cnt_attr">src</span>=<span class="cnt_string">"path/to/centipede.js"</span>>
                 </code>
             </pre>
-        </li>
+
 ##### Write your HTML:
 
 ```html
@@ -71,15 +69,12 @@ Centipede is jQuery Slideshow
     </div>    
 </pre>
 ```
-        <li>Initialize Centipede.js</li>
-        <li>
+        Initialize Centipede.js
          <pre class="cnt_code">
             <code>
 $(<span class="cnt_string">' #centipede '</span>).centipede();
             </code>
          </pre>
-        </li>
-    </ul>
 </div>
 
 <h3>Options</h3>
