@@ -58,19 +58,18 @@ Centipede is jQuery Slideshow
 ##### Write your HTML:
 
 ```html
-    <pre>
-        <div id="centipede" class="centipede"> 
-            <ul class="cnt_ul">
-                <li>Your Content </li>
-                <li>Your Content </li>
-                <li>Your Content </li>
-                <li>Your Content </li>
-                <li>Your Content </li>
-                <li>... </li>
-            </ul>
-        </div>    
-    </pre>
-
+<pre>
+    <div id="centipede" class="centipede"> 
+        <ul class="cnt_ul">
+            <li>Your Content </li>
+            <li>Your Content </li>
+            <li>Your Content </li>
+            <li>Your Content </li>
+            <li>Your Content </li>
+            <li>... </li>
+        </ul>
+    </div>    
+</pre>
 ```
         <li>Initialize Centipede.js</li>
         <li>
