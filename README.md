@@ -90,19 +90,19 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
 </div>
 
 <h3>Options</h3>
-<div class="section_content">
-    <pre class="cnt_code">
+
+   
 ```js
-   $(' #centipede ').centipede({
-        hover :  true,
-        mrg :  5,
-        navigation :  true,
-        navigation_text :  ["prev","next"],
-        caption :  false,
-    });
-```
+    <pre class="cnt_code">
+       $(' #centipede ').centipede({
+            hover :  true,
+            mrg :  5,
+            navigation :  true,
+            navigation_text :  ["prev","next"],
+            caption :  false,
+        });
     </pre>
-</div>
+```
 
 <table class="options_list">
     <tr>
