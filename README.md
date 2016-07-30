@@ -31,12 +31,20 @@ Centipede is jQuery Slideshow
 </div>
 <h3>Installation</h3>
 
+Make sure to include jQuery in your page:
+
+```js
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">    
+    
+```
+
 ##### Write your HTML:
 
 ```html
 
     <div id="centipede" class="centipede"> 
-        <ul class="cnt_ul">
+        <ul class="thumbnails">
             <li>Your Content </li>
             <li>Your Content </li>
             <li>Your Content </li>
