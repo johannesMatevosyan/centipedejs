@@ -30,6 +30,18 @@ Centipede is jQuery Slideshow
 </div>
 <h3>Installation</h3>
 <div class="section_content">
+
+```html
+<ul id="days">
+    <li>Su</li>
+    <li>Mo</li>
+    <li>Tu</li>
+    <li>We</li>
+    <li>Th</li>
+    <li>Fr</li>
+    <li>Sa</li>
+</ul>
+```
     
         Include the CSS at the top of your page in your <head> tag:
         <pre class="cnt_code">
