@@ -1,7 +1,7 @@
-# centipede
+# Centipede
 Centipede is jQuery Slideshow
 
-<h3>Features</h3>
+<h2>Features</h2>
 <div class="section_content">
     <ul class="features_list">
         <li><span>Easily configurable by changing options</span></li>
@@ -10,7 +10,7 @@ Centipede is jQuery Slideshow
     </ul>
 </div>
 
-<h3>Browser support</h3>
+<h2>Browser support</h2>
 <div class="section_content">
     <ul class="browser_support_list">
         <li><span>Firefox</span></li>
@@ -20,7 +20,7 @@ Centipede is jQuery Slideshow
         <li><span>Opera</span></li>
     </ul>
 </div>
- <h3>How to use</h3>
+ <h2>How to use</h2>
  <div class="section_content">
 
 <p class="how_to_use_desc">
@@ -29,7 +29,7 @@ Centipede is jQuery Slideshow
     In case you want to make some changes then the options are available below.
 </p>
 </div>
-<h3>Installation</h3>
+<h2>Installation</h2>
 
 Include the CSS at the top of your page in your tag:
 ```css
@@ -37,7 +37,7 @@ Include the CSS at the top of your page in your tag:
     <link href="path/to/centipede.css" rel="stylesheet">   
     
 ```
-## Make sure to include jQuery in your page:
+# Make sure to include jQuery in your page:
 
 ```js
 
@@ -45,7 +45,7 @@ Include the CSS at the top of your page in your tag:
     
 ```
 
-## Write your HTML:
+# Write your HTML:
 
 ```html
 
@@ -61,7 +61,7 @@ Include the CSS at the top of your page in your tag:
     </div>    
 
 ``` 
-## Add caption to the image:
+# Add caption to the image:
 
 ```html
 
@@ -81,7 +81,7 @@ Include the CSS at the top of your page in your tag:
 
 ```
 
-## Initialize Centipede.js
+# Initialize Centipede.js
 
 ```js
 
@@ -138,11 +138,11 @@ $(' #centipede ').centipede({
             then divs with with a <span class="selected">c_caption</span> class should be added below each image placed inside <span class="selected">thumbnails</span> unordered list. </td>
     </tr>
 </table>
-<h3>Download</h3>
+<h2>Download</h2>
 <div class="section_content">
     Download plugin
 </div>
-<h3>License</h3>
+<h2>License</h2>
 <div class="section_content">
     License content
 </div>
