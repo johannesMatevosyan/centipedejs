@@ -81,9 +81,13 @@ Include the Javascript at the bottom of your page before the closing < /body> ta
     </div>    
 
 ``` 
+
 Initialize Centipede.js
+
 ```js
-    $(<span class="cnt_string">' #centipede '</span>).centipede();    
+
+    $('#centipede').centipede();    
+    
 ```
 
 </div>
