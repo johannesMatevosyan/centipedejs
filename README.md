@@ -61,14 +61,14 @@ Centipede is jQuery Slideshow
                 <code>
 <div><span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"centipede"</span> class=<span class="cnt_string">"centipede"</span>> </div>
 <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"thumbnails"</span>></div>
-    <div class="cnt_ul">
-        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-        <div> <span class="cnt_attr"><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-        <div> <span class="cnt_attr"><span><</span>li></span> ... <span><</span> <span class="cnt_attr">/li></span> </div>
-    </div>
+        <div class="cnt_ul">
+            <div><span><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span></div>
+            <div><span><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span></div>
+            <div><span><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span></div>
+            <div><span><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span></div>
+            <div><span><span><</span>li></span> Your Content <span><</span> <span class="cnt_attr">/li></span></div>
+            <div><span><span><</span>li></span> ... <span><</span> <span class="cnt_attr">/li></span> </div>
+        </div>
 <div class="cnt_html"><span><</span>/ul></div>
 <span><</span>/div>
                 </code>
