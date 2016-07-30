@@ -94,13 +94,13 @@ $(<span class="cnt_string">' #centipede '</span>).centipede();
    
 ```js
 
-       $(' #centipede ').centipede({
-            hover :  true,
-            mrg :  5,
-            navigation :  true,
-            navigation_text :  ["prev","next"],
-            caption :  false,
-        });
+$(' #centipede ').centipede({
+    hover :  true,
+    mrg :  5,
+    navigation :  true,
+    navigation_text :  ["prev","next"],
+    caption :  false,
+});
 
 ```
 
