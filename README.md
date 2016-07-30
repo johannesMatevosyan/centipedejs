@@ -37,7 +37,7 @@ Include the CSS at the top of your page in your tag:
     <link href="path/to/centipede.css" rel="stylesheet">   
     
 ```
-Make sure to include jQuery in your page:
+## Make sure to include jQuery in your page:
 
 ```js
 
@@ -45,7 +45,7 @@ Make sure to include jQuery in your page:
     
 ```
 
-##### Write your HTML:
+## Write your HTML:
 
 ```html
 
@@ -61,8 +61,27 @@ Make sure to include jQuery in your page:
     </div>    
 
 ``` 
+## Add caption to the image:
 
-Initialize Centipede.js
+```html
+
+    <div id="centipede" class="centipede"> 
+        <ul class="thumbnails">
+            <li>
+                <img src="path/to/image.jpg" alt="Alt">
+                <div class="c_caption">Lorem ipsum dolor sit amet</div>
+            </li>
+            <li>
+                <img src="path/to/image.jpg" alt="Alt">
+                <div class="c_caption">Sed ut perspiciatis unde omnis...</div>
+            </li>
+            <li>... </li>
+        </ul>
+    </div>    
+
+```
+
+## Initialize Centipede.js
 
 ```js
 
