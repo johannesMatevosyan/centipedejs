@@ -56,6 +56,7 @@ Centipede is jQuery Slideshow
             </pre>
         </li>
 ##### Write your HTML:
+
 ```html
     <div id="centipede" class="centipede"> 
         <ul class="cnt_ul">
@@ -67,7 +68,6 @@ Centipede is jQuery Slideshow
             <li>... </li>
         </ul>
     </div>    
-```
 ```
         <li>Initialize Centipede.js</li>
         <li>
