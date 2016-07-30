@@ -31,6 +31,12 @@ Centipede is jQuery Slideshow
 </div>
 <h3>Installation</h3>
 
+Include the CSS at the top of your page in your tag:
+```css
+
+    <link href="path/to/centipede.css" rel="stylesheet">   
+    
+```
 Make sure to include jQuery in your page:
 
 ```js
