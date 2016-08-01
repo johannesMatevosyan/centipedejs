@@ -15,6 +15,8 @@ $( document ).ready(function() {
             var centipede = {
                 target: settings.target,
                 active_class : "active",
+                c_thumbnails : "c_thumbnails",
+                c_item : "c_item",
                 hover: settings.hover,
                 navigation: settings.navigation,
                 navigation_text: settings.navigation_text,
@@ -48,9 +50,9 @@ function set_css(centipede){
     var img_right_margin = (centipede.mrg/$(centipede.target).width()) * 100;
 
     if(img_right_margin >= 0){
-        var ul_w = $(centipede.target + ' .c_thumbnails').width();
+        var ul_w = $(centipede.target + centipede.blank + '.c_thumbnails').width();
         small_img_w = (100 / centipede.count) - img_right_margin;
-        $(centipede.target + centipede.blank + '.c_thumbnails .c_item').css({
+        $(centipede.target + centipede.blank + '.c_thumbnails' + centipede.blank + centipede.dot + centipede.c_item).css({
             'width' : small_img_w + '%',
             'margin-right' : img_right_margin + '%'
         });
@@ -62,13 +64,13 @@ function set_css(centipede){
         });
 
         if($(window).width() <= '500'){
-            $(centipede.target + centipede.blank + '.c_thumbnails .c_item').css({'display': 'none'});
+            $(centipede.target + centipede.blank + '.c_thumbnails' + centipede.blank + centipede.dot + centipede.c_item).css({'display': 'none'});
         }
         $(window).resize(function(){
             if($(window).width() <= '500'){
-                $(centipede.target + centipede.blank + '.c_thumbnails .c_item').css({'display': 'none'});
+                $(centipede.target + centipede.blank + '.c_thumbnails' + centipede.blank + centipede.dot + centipede.c_item).css({'display': 'none'});
             }else{
-                $(centipede.target + centipede.blank + '.c_thumbnails .c_item').css({'display': 'inherit'});
+                $(centipede.target + centipede.blank + '.c_thumbnails' + centipede.blank + centipede.dot + centipede.c_item).css({'display': 'inherit'});
             }
         });
     }
@@ -84,8 +86,8 @@ function change_image(centipede){
 
     $(centipede.target + centipede.blank + '.c_item:first').addClass(centipede.active_class);
 
-    active_item_src = $(centipede.target + centipede.blank + '.c_item' + centipede.dot + centipede.active_class).find('img').attr('src');
-    active_item_alt = $(centipede.target + centipede.blank + '.c_item' + centipede.dot + centipede.active_class).find('img').attr('alt');
+    active_item_src = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('img').attr('src');
+    active_item_alt = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('img').attr('alt');
 
     $(centipede.target).prepend('<div class="c_large_item"><img src="' + active_item_src + '" alt="' + active_item_alt +'"></div>');
 
@@ -93,7 +95,7 @@ function change_image(centipede){
     // set opacity
     if(centipede.hover){
         $(centipede.target + centipede.blank + '.c_large_item').find('img').addClass('img_opacity');
-        $(centipede.target + centipede.blank + '.c_item').find('img').addClass('img_opacity');
+        $(centipede.target + centipede.blank + centipede.dot + centipede.c_item).find('img').addClass('img_opacity');
     }
 
     // set caption
@@ -105,14 +107,14 @@ function change_image(centipede){
         $(centipede.blank + centipede.target + centipede.blank + '.c_large_item .show_caption').remove();
     }
 
-    $(centipede.target + centipede.blank + '.c_item').on('click', function(){
+    $(centipede.target + centipede.blank + centipede.dot + centipede.c_item).on('click', function(){
 
         if(!$(this).hasClass(centipede.active_class)){
             $(this).siblings().removeClass(centipede.active_class);
             $(this).addClass(centipede.active_class);
 
-            active_item_src = $(centipede.target + centipede.blank + '.c_item' + centipede.dot + centipede.active_class).find('img').attr('src');
-            active_item_alt = $(centipede.target + centipede.blank + '.c_item' + centipede.dot + centipede.active_class).find('img').attr('alt');
+            active_item_src = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('img').attr('src');
+            active_item_alt = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('img').attr('alt');
 
             if(centipede.fade_effect){
                 $(this).closest('.c_thumbnails').siblings('.c_large_item').find('img').fadeOut(400, function() {
@@ -131,7 +133,7 @@ function change_image(centipede){
             }
 
             if(centipede.caption){
-                set_caption = $(centipede.target + centipede.blank + '.c_item' + centipede.dot + centipede.active_class).find('.c_caption').text();
+                set_caption = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('.c_caption').text();
                 $(this).closest('.c_thumbnails').siblings('.c_large_item').find('.show_caption').text(set_caption);
             }else{
                 $(centipede.blank + centipede.target + centipede.blank + '.c_large_item .show_caption').remove();
@@ -168,14 +170,14 @@ function set_navigation(centipede){
             var index = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item.active').index();
             if(index == 0){
 
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').removeClass('active');
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index-1).addClass('active');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).removeClass('active');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index-1).addClass('active');
                 var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item:last').find('img').attr('src');
                 $(this).closest('.c_large_item').find('img').attr('src', set_src);
 
                 // Set caption text
                 if(centipede.caption){
-                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index-1).find('.c_caption').text();
+                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index-1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
                     $(centipede.blank + centipede.target + centipede.blank + '.c_large_item .show_caption').remove();
@@ -184,13 +186,13 @@ function set_navigation(centipede){
             }
             if(index <= centipede.count - 1 && index != 0){
 
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').removeClass('active');
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index - 1).addClass('active');
-                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index - 1).find('img').attr('src');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).removeClass('active');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index - 1).addClass('active');
+                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index - 1).find('img').attr('src');
                 $(this).closest('.c_large_item').find('img').attr('src', set_src);
 
                 if(centipede.caption){
-                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index - 1).find('.c_caption').text();
+                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index - 1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
                     $(centipede.blank + centipede.target + centipede.blank + '.c_large_item .show_caption').remove();
@@ -203,28 +205,28 @@ function set_navigation(centipede){
 
             var index = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item.active').index();
             if(index == 0){
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').removeClass('active');
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index + 1).addClass('active');
-                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index + 1).find('img').attr('src');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).removeClass('active');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).addClass('active');
+                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).find('img').attr('src');
                 $(this).closest('.c_large_item').find('img').attr('src', set_src);
 
                 // Set caption text
                 if(centipede.caption){
-                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index + 1).find('.c_caption').text();
+                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
                     $(centipede.blank + centipede.target + centipede.blank + '.c_large_item .show_caption').remove();
                 }
             }
             if(index < centipede.count - 1 && index != 0){
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').removeClass('active');
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index + 1).addClass('active');
-                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index + 1).find('img').attr('src');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).removeClass('active');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).addClass('active');
+                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).find('img').attr('src');
                 $(this).closest('.c_large_item').find('img').attr('src', set_src);
 
                 // Set caption text
                 if(centipede.caption){
-                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index + 1).find('.c_caption').text();
+                    var caption_text = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
                     $(centipede.blank + centipede.target + centipede.blank + '.c_large_item .show_caption').remove();
@@ -232,9 +234,9 @@ function set_navigation(centipede){
             }
             if(index == centipede.count - 1 && index != 0){
                 index = 0;
-                $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').removeClass('active');
+                $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).removeClass('active');
                 $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item:first').addClass('active');
-                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find('.c_item').eq(index).find('img').attr('src');
+                var set_src = $(this).closest('.c_large_item').siblings('.c_thumbnails').find(centipede.blank + centipede.dot + centipede.c_item).eq(index).find('img').attr('src');
                 $(this).closest('.c_large_item').find('img').attr('src', set_src);
 
                 // Set caption text
