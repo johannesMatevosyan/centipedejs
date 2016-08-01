@@ -1,0 +1,27 @@
+{
+  "name": "centipede",
+  "version": "1.0.0",
+  "description": "\"Centipede is a jQuery Slideshow plugin\"",
+  "main": "\"centipede.js\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johannesMatevosyan/centipede.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "slideshow",
+    "carousel",
+    "gallery",
+    "jquery",
+    "responsive"
+  ],
+  "author": "Hovhannes Matevosyan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johannesMatevosyan/centipede/issues"
+  },
+  "homepage": "https://github.com/johannesMatevosyan/centipede#readme"
+}
