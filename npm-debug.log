@@ -14,18 +14,18 @@
 7 silly cache add   rawSpec: '.',
 7 silly cache add   spec: 'Z:\\hovhannes\\jquery-plugin-dev\\centipede',
 7 silly cache add   type: 'directory' }
-8 verbose addLocalDirectory C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.0\package.tgz not in flight; packing
-9 verbose tar pack [ 'C:\\Users\\Vertigo2\\AppData\\Roaming\\npm-cache\\centipede\\1.0.0\\package.tgz',
+8 verbose addLocalDirectory C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.1\package.tgz not in flight; packing
+9 verbose tar pack [ 'C:\\Users\\Vertigo2\\AppData\\Roaming\\npm-cache\\centipede\\1.0.1\\package.tgz',
 9 verbose tar pack   'Z:\\hovhannes\\jquery-plugin-dev\\centipede' ]
-10 verbose tarball C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.0\package.tgz
+10 verbose tarball C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.1\package.tgz
 11 verbose folder Z:\hovhannes\jquery-plugin-dev\centipede
-12 info prepublish centipede@1.0.0
-13 verbose addLocalTarball adding from inside cache C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.0\package.tgz
-14 silly cache afterAdd centipede@1.0.0
-15 verbose afterAdd C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.0\package\package.json not in flight; writing
-16 verbose afterAdd C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.0\package\package.json written
+12 info prepublish centipede@1.0.1
+13 verbose addLocalTarball adding from inside cache C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.1\package.tgz
+14 silly cache afterAdd centipede@1.0.1
+15 verbose afterAdd C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.1\package\package.json not in flight; writing
+16 verbose afterAdd C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.1\package\package.json written
 17 silly publish { name: 'centipede',
-17 silly publish   version: '1.0.0',
+17 silly publish   version: '1.0.1',
 17 silly publish   description: '"Centipede is a jQuery Slideshow plugin"',
 17 silly publish   main: '"centipede.js"',
 17 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
@@ -43,11 +43,11 @@
 17 silly publish   license: 'MIT',
 17 silly publish   bugs: { url: 'https://github.com/johannesMatevosyan/centipede/issues' },
 17 silly publish   homepage: 'https://github.com/johannesMatevosyan/centipede#readme',
-17 silly publish   gitHead: '94d64eb6734796874a795a8d6c1bcd0640c4d0d7',
+17 silly publish   gitHead: 'edb814ae180cd99d2d629b8c478d22df3e51e4c8',
 17 silly publish   readme: '# Centipede jQuery Slideshow\r\n\r\n<h2>Features</h2>\r\n<div class="section_content">\r\n    <ul class="features_list">\r\n        <li><span>Easily configurable by changing options</span></li>\r\n        <li><span>No external dependencies, apart from jQuery</span></li>\r\n        <li><span>Centipede does not contain a lot of functionality and it keeps the size small, only 6kb</span></li>\r\n    </ul>\r\n</div>\r\n\r\n<h2>Browser support</h2>\r\n<div class="section_content">\r\n    <ul class="browser_support_list">\r\n        <li><span>Firefox</span></li>\r\n        <li><span>Safari</span></li>\r\n        <li><span>Chrome</span></li>\r\n        <li><span>Internet Explorer 9+</span></li>\r\n        <li><span>Opera</span></li>\r\n    </ul>\r\n</div>\r\n <h2>How to use</h2>\r\n <div class="section_content">\r\n\r\n<p class="how_to_use_desc">\r\n    First of all you need to locate image according to their sizes. Thus, large images should be grouped together in one folder whereas small images should be grouped into another.\r\n    After that the corresponding paths to those folders are needed. That\'s all :) <br>\r\n    In case you want to make some changes then the options are available below.\r\n</p>\r\n</div>\r\n<h2>Installation</h2>\r\n\r\nInclude the CSS at the top of your page in your tag:\r\n```css\r\n\r\n    <link href="path/to/centipede.css" rel="stylesheet">   \r\n    \r\n```\r\n Make sure to include jQuery in your page:\r\n\r\n```js\r\n\r\n    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">    \r\n    \r\n```\r\n\r\n Write your HTML:\r\n\r\n```html\r\n\r\n    <div id="centipede" class="centipede"> \r\n        <ul class="thumbnails">\r\n            <li>Your Content </li>\r\n            <li>Your Content </li>\r\n            <li>Your Content </li>\r\n            <li>Your Content </li>\r\n            <li>Your Content </li>\r\n            <li>... </li>\r\n        </ul>\r\n    </div>    \r\n\r\n``` \r\n Add caption to the image:\r\n\r\n```html\r\n\r\n    <div id="centipede" class="centipede"> \r\n        <ul class="thumbnails">\r\n            <li>\r\n                <img src="path/to/image.jpg" alt="Alt">\r\n                <div class="c_caption">Lorem ipsum dolor sit amet</div>\r\n            </li>\r\n            <li>\r\n                <img src="path/to/image.jpg" alt="Alt">\r\n                <div class="c_caption">Sed ut perspiciatis unde omnis...</div>\r\n            </li>\r\n            <li>... </li>\r\n        </ul>\r\n    </div>    \r\n\r\n```\r\n\r\n Initialize Centipede.js\r\n\r\n```js\r\n\r\n    $(\'#centipede\').centipede();    \r\n    \r\n```\r\n\r\n\r\n<h3>Options</h3>\r\n   \r\n```js\r\n\r\n$(\' #centipede \').centipede({\r\n    hover :  true,\r\n    mrg :  5,\r\n    navigation :  true,\r\n    navigation_text :  ["prev","next"],\r\n    caption :  false,\r\n});\r\n\r\n```\r\n\r\n<table class="options_list">\r\n    <tr>\r\n        <td><h4>Option</h4></td>\r\n        <td><h4>Default</h4></td>\r\n        <td><h4>Description</h4></td>\r\n    </tr>\r\n    <tr>\r\n        <td class="key">hover:</td>\r\n        <td class="default">false</td>\r\n        <td class="value">You can add opacity effect on thumbnail images while mouse over event by setting this option to <span class="selected">true</span></td>\r\n    </tr>\r\n    <tr>\r\n        <td class="key">mrg:</td>\r\n        <td class="default">margin-right: 5px</td>\r\n        <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>\r\n    </tr>\r\n    <tr>\r\n        <td class="key">navigation:</td>\r\n        <td class="default">false</td>\r\n        <td class="value"></td>\r\n    </tr>\r\n    <tr>\r\n        <td class="key">navigation_text:</td>\r\n        <td class="default">["Prev","Next"]</td>\r\n        <td class="value">Allows you to customize the HTML for the "Next"/"Prev" arrows, but the <span class="selected">navigation</span> should be set to true</td>\r\n    </tr>\r\n    <tr>\r\n        <td class="key">caption:</td>\r\n        <td class="default">false</td>\r\n        <td class="value">It is possible to add a caption. Therefore <span class="selected">caption</span> should be set to true\r\n            then divs with with a <span class="selected">c_caption</span> class should be added below each image placed inside <span class="selected">thumbnails</span> unordered list. </td>\r\n    </tr>\r\n</table>\r\n<h2>Download</h2>\r\n<div class="section_content">\r\n    Download plugin\r\n</div>\r\n<h2>License</h2>\r\n<div class="section_content">\r\n    License content\r\n</div>\r\n',
 17 silly publish   readmeFilename: 'README.md',
-17 silly publish   _id: 'centipede@1.0.0',
-17 silly publish   _shasum: '7dde7e29fa1f3779e641b0312f9d81a11fd4398d',
+17 silly publish   _id: 'centipede@1.0.1',
+17 silly publish   _shasum: '21c9b24e49ee0e383ac8f4ee020a133f096aabfb',
 17 silly publish   _from: '.' }
 18 verbose getPublishConfig undefined
 19 silly mapToRegistry name centipede
@@ -55,25 +55,25 @@
 21 silly mapToRegistry registry https://registry.npmjs.org/
 22 silly mapToRegistry uri https://registry.npmjs.org/centipede
 23 verbose publish registryBase https://registry.npmjs.org/
-24 silly publish uploading C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.0\package.tgz
+24 silly publish uploading C:\Users\Vertigo2\AppData\Roaming\npm-cache\centipede\1.0.1\package.tgz
 25 verbose request uri https://registry.npmjs.org/centipede
 26 verbose request sending authorization for write operation
-27 info attempt registry request try #1 at 18:27:10
+27 info attempt registry request try #1 at 18:37:11
 28 verbose request using bearer token for auth
-29 verbose request id d4012f9543760e52
+29 verbose request id b398672c50db504d
 30 http request PUT https://registry.npmjs.org/centipede
 31 http 403 https://registry.npmjs.org/centipede
 32 verbose headers { 'content-type': 'application/json',
 32 verbose headers   'cache-control': 'max-age=300',
 32 verbose headers   'content-length': '103',
 32 verbose headers   'accept-ranges': 'bytes',
-32 verbose headers   date: 'Mon, 01 Aug 2016 14:26:32 GMT',
+32 verbose headers   date: 'Mon, 01 Aug 2016 14:36:33 GMT',
 32 verbose headers   via: '1.1 varnish',
 32 verbose headers   connection: 'keep-alive',
-32 verbose headers   'x-served-by': 'cache-lhr6339-LHR',
+32 verbose headers   'x-served-by': 'cache-lhr6345-LHR',
 32 verbose headers   'x-cache': 'MISS',
 32 verbose headers   'x-cache-hits': '0',
-32 verbose headers   'x-timer': 'S1470061588.639644,VS0,VE4183',
+32 verbose headers   'x-timer': 'S1470062189.912416,VS0,VE3247',
 32 verbose headers   vary: 'Accept-Encoding' }
 33 verbose request invalidating C:\Users\Vertigo2\AppData\Roaming\npm-cache\registry.npmjs.org\centipede on PUT
 34 error publish Failed PUT 403

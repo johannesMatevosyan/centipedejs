@@ -1,6 +1,6 @@
 {
-  "name": "centipede",
-  "version": "1.0.0",
+  "name": "centipedejs",
+  "version": "1.0.1",
   "description": "\"Centipede is a jQuery Slideshow plugin\"",
   "main": "\"centipede.js\"",
   "scripts": {
