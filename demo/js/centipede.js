@@ -18,6 +18,7 @@ $( document ).ready(function() {
                 c_large : "c_large_item",
                 c_thumbnails : "c_thumbnails",
                 c_item : "c_item",
+                c_s_caption: "show_caption",
                 hover: settings.hover,
                 navigation: settings.navigation,
                 navigation_text: settings.navigation_text,
@@ -36,6 +37,7 @@ $( document ).ready(function() {
             return this;
         };
     }(jQuery));
+
 });
 
 
@@ -53,9 +55,18 @@ function set_css(centipede){
             'width' : small_img_w + '%',
             'margin-right' : img_right_margin + '%'
         });
+
+        var total_margins = img_right_margin * (centipede.count - 1);
+
+        // add left margin to remove browser errors and spread 'li' tags equally within whole with
+        var width = ( 100 * parseFloat($(centipede.target + centipede.blank + centipede.dot + centipede.c_thumbnails + centipede.blank + centipede.dot + centipede.c_item).css('width')) /
+        parseFloat($(centipede.target + centipede.blank + centipede.dot + centipede.c_thumbnails).parent().css('width')) );
+
+        var whole_width = width * centipede.count + total_margins;
+        var reminder = 100 - whole_width;
         $(centipede.target + centipede.blank + centipede.dot + centipede.c_thumbnails + centipede.blank + centipede.dot + centipede.c_item + ':first-child').css({
-            'margin-left' : 0.14 + '%'
-        });
+            'margin-left' : reminder/2.5 + '%'
+         });
         $(centipede.target + centipede.blank + centipede.dot + centipede.c_thumbnails + centipede.blank + centipede.dot + centipede.c_item + ':last-child').css({
             'margin-right' : 0
         });
@@ -97,11 +108,11 @@ function change_image(centipede){
 
     // set caption
     if(centipede.caption){
-        $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large).append('<div class="show_caption"></div>');
+        $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large).append('<div class="' + centipede.c_s_caption + '"></div>');
         set_caption = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('.c_caption').text();
-        $(centipede.target + centipede.blank + centipede.dot + centipede.c_large).find('.show_caption').text(set_caption);
+        $(centipede.target + centipede.blank + centipede.dot + centipede.c_large).find(centipede.dot + centipede.c_s_caption).text(set_caption);
     }else{
-        $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
+        $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
     }
 
     $(centipede.target + centipede.blank + centipede.dot + centipede.c_item).on('click', function(){
@@ -131,9 +142,9 @@ function change_image(centipede){
 
             if(centipede.caption){
                 set_caption = $(centipede.target + centipede.blank + centipede.dot + centipede.c_item + centipede.dot + centipede.active_class).find('.c_caption').text();
-                $(this).closest(centipede.dot + centipede.c_thumbnails).siblings(centipede.dot + centipede.c_large).find('.show_caption').text(set_caption);
+                $(this).closest(centipede.dot + centipede.c_thumbnails).siblings(centipede.dot + centipede.c_large).find(centipede.dot + centipede.c_s_caption).text(set_caption);
             }else{
-                $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
+                $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
             }
 
 
@@ -144,13 +155,11 @@ function change_image(centipede){
 
 }
 
-
-
 function set_caption_text(centipede, caption_text){
 
-    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
-    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large).append('<div class="show_caption"></div>');
-    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large).find('.show_caption').text(caption_text);
+    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
+    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large).append('<div class="' + centipede.c_s_caption + '"></div>');
+    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large).find(centipede.dot + centipede.c_s_caption).text(caption_text);
 
 }
 
@@ -177,7 +186,7 @@ function set_navigation(centipede){
                     var caption_text = $(this).closest(centipede.c_large).siblings(centipede.dot + centipede.c_thumbnails).find(centipede.blank + centipede.dot + centipede.c_item).eq(index-1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
-                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
+                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
                 }
 
             }
@@ -192,7 +201,7 @@ function set_navigation(centipede){
                     var caption_text = $(this).closest(centipede.dot + centipede.c_large).siblings(centipede.dot + centipede.c_thumbnails).find(centipede.blank + centipede.dot + centipede.c_item).eq(index - 1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
-                    $(centipede.blank + centipede.target + centipede.blank + centipede.c_large + centipede.blank + '.show_caption').remove();
+                    $(centipede.blank + centipede.target + centipede.blank + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
                 }
             }
 
@@ -212,7 +221,7 @@ function set_navigation(centipede){
                     var caption_text = $(this).closest(centipede.dot + centipede.c_large).siblings(centipede.dot + centipede.c_thumbnails).find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
-                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
+                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
                 }
             }
             if(index < centipede.count - 1 && index != 0){
@@ -226,7 +235,7 @@ function set_navigation(centipede){
                     var caption_text = $(this).closest(centipede.dot + centipede.c_large).siblings(centipede.dot + centipede.c_thumbnails).find(centipede.blank + centipede.dot + centipede.c_item).eq(index + 1).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
-                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
+                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
                 }
             }
             if(index == centipede.count - 1 && index != 0){
@@ -241,7 +250,7 @@ function set_navigation(centipede){
                     var caption_text = $(this).closest(centipede.dot + centipede.c_large).siblings(centipede.dot + centipede.c_thumbnails).find('.c_item:first').eq(index).find('.c_caption').text();
                     set_caption_text(centipede, caption_text);
                 }else{
-                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + '.show_caption').remove();
+                    $(centipede.blank + centipede.target + centipede.blank + centipede.dot + centipede.c_large + centipede.blank + centipede.dot + centipede.c_s_caption).remove();
                 }
             }
         });
