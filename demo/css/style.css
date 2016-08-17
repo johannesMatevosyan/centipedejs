@@ -85,6 +85,9 @@ section h3{
 section .section_content{
     padding: 0 5px 0 5px;
 }
+section .section_content .github{
+    text-decoration: none;
+}
 .selected{
     font-family: 'latoregular';
     font-weight: normal;
