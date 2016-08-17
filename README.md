@@ -50,12 +50,12 @@ Include the CSS at the top of your page in your tag:
 
     <div id="centipede" class="centipede"> 
         <ul class="thumbnails">
-            <li>Your Content </li>
-            <li>Your Content </li>
-            <li>Your Content </li>
-            <li>Your Content </li>
-            <li>Your Content </li>
-            <li>... </li>
+            <li class="c_item">Your Content </li>
+            <li class="c_item">Your Content </li>
+            <li class="c_item">Your Content </li>
+            <li class="c_item">Your Content </li>
+            <li class="c_item">Your Content </li>
+            <li class="c_item">... </li>
         </ul>
     </div>    
 
