@@ -76,7 +76,7 @@ function set_css(centipedejs){
         if($(window).width() <= '500'){
             $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
         }
-        
+
         $(window).resize(function(){
 
             var row_width = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails)[0].getBoundingClientRect().width;
