@@ -27,7 +27,9 @@ body{
 }
 .wrapper{
     width: 60%;
-    margin: 0px auto 50px;
+    margin: 0px auto 70px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
 }
 .head{
     background-color: #444;
