@@ -45,6 +45,7 @@ $( document ).ready(function() {
 function set_css(centipedejs){
 
     // set width and height of small images
+    /*
     var small_img_w;
     var img_right_margin = (centipedejs.mrg/$(centipedejs.target).width()) * 100;
 
@@ -82,7 +83,81 @@ function set_css(centipedejs){
             }
         });
     }
+    */
+    // set width and height of small images
 
+    function roundDown(number, decimals) {
+        decimals = decimals || 0;
+        return ( Math.floor( number * Math.pow(10, decimals) ) / Math.pow(10, decimals) );
+    }
+
+    var img_right_margin = centipedejs.mrg;
+
+    if(img_right_margin >= 0){
+
+        var ul_w = $(centipedejs.target).width();
+        var ul_w2 = $('.c_thumbnails')[0].getBoundingClientRect().width;
+        console.log('ul_w2 ', ul_w2);
+        var mrg = img_right_margin * (centipedejs.count - 1);
+
+        if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
+            // Do something in Firefox
+            var img_w = roundDown((ul_w2 - mrg)/centipedejs.count, 1);
+            console.log('Firefox ');
+        }else{
+            console.log('Chrome 3');
+            var img_w = roundDown((ul_w2 - mrg)/centipedejs.count, 3);
+        }
+
+        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({
+            'width' : img_w,
+            'margin-right' : img_right_margin
+        });
+
+        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':last-child').css({
+            'margin-right' : 0
+        });
+
+        // hide thumbnails in responsive layout
+        if($(window).width() <= '500'){
+            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
+        }
+
+
+        $(window).resize(function(){
+
+            console.log('resize ');
+            var ul_w = $(centipedejs.target).width();
+            var ul_w2 = $('.c_thumbnails')[0].getBoundingClientRect().width;
+            console.log('ul_w2 ', ul_w2);
+            var mrg = img_right_margin * (centipedejs.count - 1);
+
+            if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
+                // Do something in Firefox
+                var img_w = roundDown((ul_w2 - mrg)/centipedejs.count, 1);
+                console.log('Firefox ');
+            }else{
+                console.log('Chrome 3');
+                var img_w = roundDown((ul_w2 - mrg)/centipedejs.count, 3);
+            }
+
+            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({
+                'width' : img_w,
+                'margin-right' : img_right_margin
+            });
+
+            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':last-child').css({
+                'margin-right' : 0
+            });
+
+            // hide thumbnails in responsive layout
+            if($(window).width() <= '500'){
+                $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
+            }else{
+                $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'inherit'});
+            }
+        });
+    }
 }
 
 // swap images after click

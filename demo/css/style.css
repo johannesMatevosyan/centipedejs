@@ -182,7 +182,7 @@ pre.cnt_code code .options_js_val{
 
 #gallery{
     display: inline-block;
-    border: 5px solid #444;
+/*    border: 5px solid #444; */
     width: 100%;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -224,7 +224,7 @@ pre.cnt_code code .options_js_val{
 #gallery .c_thumbnails {
     overflow: hidden;
     width: 100%;
-    background: lightblue;
+    background: red;
 }
 #gallery .c_thumbnails .c_item {
     float: left;
