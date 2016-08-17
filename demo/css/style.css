@@ -224,7 +224,6 @@ pre.cnt_code code .options_js_val{
 #gallery .c_thumbnails {
     overflow: hidden;
     width: 100%;
-    background: red;
 }
 #gallery .c_thumbnails .c_item {
     float: left;
