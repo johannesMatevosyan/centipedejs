@@ -45,41 +45,66 @@ $( document ).ready(function() {
 function set_css(centipedejs){
 
     // set width and height of small images
-    var small_img_w;
-    var img_right_margin = (centipedejs.mrg/$(centipedejs.target).width()) * 100;
+    function roundDown(number, decimals) {
+        decimals = decimals || 0;
+        return ( Math.floor( number * Math.pow(10, decimals) ) / Math.pow(10, decimals) );
+    }
+
+    var img_right_margin = centipedejs.mrg;
 
     if(img_right_margin >= 0){
 
-        small_img_w = (100 / centipedejs.count) - img_right_margin;
+        var row_width = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails)[0].getBoundingClientRect().width;
+        var mrg = img_right_margin * (centipedejs.count - 1);
+
+        if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
+            // Do something in Firefox
+            var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 1);
+        }else{
+            var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 3);
+        }
+
         $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({
-            'width' : small_img_w + '%',
-            'margin-right' : img_right_margin + '%'
-        });
-
-        var total_margins = img_right_margin * (centipedejs.count - 1);
-
-        // add left margin to remove browser errors and spread 'li' tags equally within whole with
-        var width = ( 100 * parseFloat($(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css('width')) /
-        parseFloat($(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails).parent().css('width')) );
-
-        var whole_width = width * centipedejs.count + total_margins;
-        var reminder = 100 - whole_width;
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':first-child').css({
-            'margin-left' : reminder/2.5 + '%'
+            'width' : small_img_w,
+            'margin-right' : img_right_margin
         });
         $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':last-child').css({
             'margin-right' : 0
         });
 
+        // hide thumbnails in responsive layout
         if($(window).width() <= '500'){
             $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
         }
+
+
         $(window).resize(function(){
+
+            var row_width = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails)[0].getBoundingClientRect().width;
+            var mrg = img_right_margin * (centipedejs.count - 1);
+
+            if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
+                // Do something in Firefox
+                var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 1);
+            }else{
+                var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 3);
+            }
+
+            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({
+                'width' : small_img_w,
+                'margin-right' : img_right_margin
+            });
+            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':last-child').css({
+                'margin-right' : 0
+            });
+
+            // hide thumbnails in responsive layout
             if($(window).width() <= '500'){
                 $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
             }else{
                 $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'inherit'});
             }
+
         });
     }
 
