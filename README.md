@@ -136,11 +136,4 @@ $(' #centipede ').centipede({
             then divs with with a <span class="selected">c_caption</span> class should be added below each image placed inside <span class="selected">thumbnails</span> unordered list. </td>
     </tr>
 </table>
-<h2>Download</h2>
-<div class="section_content">
-    Download plugin
-</div>
-<h2>License</h2>
-<div class="section_content">
-    License content
-</div>
+
