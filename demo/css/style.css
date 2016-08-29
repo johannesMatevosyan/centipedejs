@@ -344,7 +344,7 @@ pre.cnt_code code .options_js_val{
     z-index: 99;
     width: 24px;
     height: 25px;
-    bottom: 10px;
+    bottom: 14px;
     transform: translate(0, -50%);
 }
 .c_bottom .c_sidebar_nav.prev{
