@@ -212,18 +212,18 @@ pre.cnt_code code .options_js_val{
 .c_main #c_inner{
     overflow: hidden;
 }
-.c_left #wrap_inner,
-.c_right #wrap_inner,
-.c_bottom #wrap_inner{
+.c_left #c_wrap_inner,
+.c_right #c_wrap_inner,
+.c_bottom #c_wrap_inner{
     position: relative;
     overflow-x: scroll;
     overflow: hidden;
     -ms-overflow-style: none;
 }
-#wrap_inner::-webkit-scrollbar,
-#wrap_inner::-moz-scrollbar,
-#wrap_inner:-moz-scrollbars-none,
-#wrap_inner:-ms-scrollbar {
+#c_wrap_inner::-webkit-scrollbar,
+#c_wrap_inner::-moz-scrollbar,
+#c_wrap_inner:-moz-scrollbars-none,
+#c_wrap_inner:-ms-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
@@ -252,7 +252,7 @@ pre.cnt_code code .options_js_val{
     position: relative;
 }
 
-#wrap_inner .c_main_caption{
+#c_wrap_inner .c_main_caption{
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
     position: absolute;
