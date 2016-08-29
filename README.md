@@ -75,13 +75,13 @@ Include the CSS at the top of your page in your tag:
 
 ```html
 
-    <div id="centipede" class="centipede"> 
-        <ul class="thumbnails">
-            <li>
+    <div class="c_sidebar"> 
+        <ul class="c_thumbnails">
+            <li class="c_item">
                 <img src="path/to/image.jpg" alt="Alt">
                 <div class="c_caption">Lorem ipsum dolor sit amet</div>
             </li>
-            <li>
+            <li class="c_item">
                 <img src="path/to/image.jpg" alt="Alt">
                 <div class="c_caption">Sed ut perspiciatis unde omnis...</div>
             </li>
