@@ -128,6 +128,9 @@ pre.cnt_code code .cnt_string{
 pre.cnt_code code .cnt_html{
     margin:4px 0 0 22px;
 }
+pre.cnt_code code .cnt_comments{
+    color: #228B22;
+}
 pre.cnt_code code .cnt_ul{
     margin:4px 0 0 40px;
 }
