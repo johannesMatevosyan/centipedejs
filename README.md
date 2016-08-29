@@ -13,7 +13,6 @@
 <div class="section_content">
     <ul class="browser_support_list">
         <li><span>Firefox</span></li>
-        <li><span>Safari</span></li>
         <li><span>Chrome</span></li>
         <li><span>Internet Explorer 9+</span></li>
         <li><span>Opera</span></li>
@@ -47,18 +46,30 @@ Include the CSS at the top of your page in your tag:
  Write your HTML:
 
 ```html
-
-    <div id="centipede" class="centipede"> 
-        <ul class="thumbnails">
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">... </li>
-        </ul>
-    </div>    
-
+    <div id="my_gallery">
+        <div class="c_main">
+            <!-- Main Slide -->
+            <div id="c_wrap_inner">
+                <div id="c_inner"> 
+                    <img  src="img/1.jpg" alt="My Slider"> 
+                </div>
+            </div>
+        </div> 
+        <div class="c_sidebar">
+            <ul class="c_thumbnails">
+                <li class="c_item">
+                    <img  src="img/1.jpg" alt="My Slider"> 
+                </li>
+                <li class="c_item">
+                    <img  src="img/2.jpg" alt="My Slider"> 
+                </li>
+                <li class="c_item">
+                    <img  src="img/3.jpg" alt="My Slider"> 
+                </li>
+                <li class="c_item">... </li>
+            </ul>
+        </div>    
+    </div>  
 ``` 
  Add caption to the image:
 
