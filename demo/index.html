@@ -3,13 +3,21 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>CentipedeJS is jQuery Slideshow</title>
+    <title>CentipedeJS | jQuery Slider</title>
 </head>
 <body>
     <h1 class="head"><span>Hovhannes Matevosyan</span></h1>
     <div class="wrapper">
         <h2 class="main_title">CentipedeJS is jQuery Slideshow</h2>
-            <div id="gallery">
+        <div id="gallery">
+            <div class="main">
+                <div id="wrap_inner" class="c_wrap_inner">
+                    <div id="inner">
+                        <img src="img/1.jpg" alt="Gallery 1">
+                    </div>
+                </div>
+            </div>
+            <div class="c_sidebar">
                 <ul class="c_thumbnails">
                     <li class="c_item">
                         <img src="img/1.jpg" alt="Gallery 1"/>
@@ -39,8 +47,25 @@
                         <img src="img/7.jpg" alt="Gallery 7"/>
                         <div class="c_caption">lorem Ipsum 7</div>
                     </li>
+                    <li class="c_item">
+                        <img src="img/8.jpg" alt="Gallery 8"/>
+                        <div class="c_caption">lorem Ipsum 8</div>
+                    </li>
+                    <li class="c_item">
+                        <img src="img/9.jpg" alt="Gallery 9"/>
+                        <div class="c_caption">lorem Ipsum 9</div>
+                    </li>
+                    <li class="c_item">
+                        <img src="img/10.jpg" alt="Gallery 10"/>
+                        <div class="c_caption">lorem Ipsum 10</div>
+                    </li>
+                    <li class="c_item">
+                        <img src="img/11.jpg" alt="Gallery 11"/>
+                        <div class="c_caption">lorem Ipsum 11</div>
+                    </li>
                 </ul>
             </div>
+        </div>
 
         <span id="photographer">Photos by <a href="https://www.facebook.com/karen.nersisyan.5?fref=ts">Karen Nersisyan</a></span>
         <section class="features">
@@ -112,16 +137,48 @@
                     <li>
                         <pre class="cnt_code">
                             <code>
+                                <div>
+                                    <span><</span>div class=<span class="cnt_string">"main"</span><span>> </span> <br>
+                                        <div class="cnt_html">
+                                            <span ><</span>div id=<span class="cnt_string">"wrap_inner"</span> class=<span class="cnt_string">"c_wrap_inner"</span><span>> </span>
+                                        </div>
+                                            <div class="cnt_ul">
+                                                <span><</span>div id=<span class="cnt_string">"inner"</span><span>> </span> <br>
+                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/1.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span><br>
+                                                <span><</span> /div>
+                                            </div>
+
+                                        <div class="cnt_html"><span><</span> /div> </div>
+                                    <span><</span> /div> <br>
+
+                                </div>
                                 <div><span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"my_gallery"</span> class=<span class="cnt_string">"my_gallery"</span>> </div>
                                 <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"c_thumbnails"</span>></div>
-                                    <div class="cnt_ul">
-                                        <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                                        <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                                        <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                                        <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                                        <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> Your Content <span><</span> <span class="cnt_attr">/li></span> </div>
-                                        <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> ... <span><</span> <span class="cnt_attr">/li></span> </div>
+                                <div class="cnt_ul">
+                                    <div>
+                                        <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
+                                            <br>
+                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/1.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
+                                            <br>
+                                        <span><</span> <span>/li></span>
                                     </div>
+                                    <div>
+                                        <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
+                                            <br>
+                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/2.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
+                                            <br>
+                                        <span><</span> <span>/li></span>
+                                    </div>
+                                    <div>
+                                        <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
+                                            <br>
+                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/3.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
+                                            <br>
+                                        <span><</span> <span>/li></span>
+                                    </div>
+
+                                    <div> <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> ... <span><</span> <span class="cnt_attr">/li></span> </div>
+                                </div>
                                 <div class="cnt_html"><span><</span>/ul></div>
                                 <span><</span>/div>
                             </code>
@@ -143,10 +200,7 @@
                     <code>$(<span class="cnt_string">' #my_gallery '</span>).centipedejs({
                         <div class="options_js">
                             <ul>
-                                <li><span class="options_js_keys">hover&nbsp;: </span><span class="options_js_val">&nbsp;false</span>,</li>
-                                <li><span class="options_js_keys">mrg&nbsp;:  </span><span class="options_js_val">&nbsp;5</span>, </li>
-                                <li><span class="options_js_keys">navigation&nbsp;:  </span><span class="options_js_val">&nbsp;true</span>, </li>
-                                <li><span class="options_js_keys">navigation_text&nbsp;:  </span><span class="options_js_val">&nbsp;["prev","next"]</span>, </li>
+                                <li><span class="options_js_keys">position&nbsp;:  </span><span class="options_js_val">&nbsp;"bottom"</span>, </li>
                                 <li><span class="options_js_keys">caption&nbsp;:  </span><span class="options_js_val">&nbsp;false</span>, </li>
                             </ul>
                         </div>
@@ -162,25 +216,10 @@
                         <td><h4>Description</h4></td>
                     </tr>
                     <tr>
-                        <td class="key">hover:</td>
-                        <td class="default">false</td>
-                        <td class="value">You can add opacity effect on thumbnail images while mouse over event by setting this option to <span class="selected">true</span></td>
-                    </tr>
-                    <tr>
-                        <td class="key">mrg:</td>
-                        <td class="default">margin-right: 5px</td>
-                        <td class="value">By default all thumbnails except the last one have a right margin. This option allows to regulate the distance between thumbnails.</td>
-                    </tr>
-                    <tr>
-                        <td class="key">navigation:</td>
-                        <td class="default">false</td>
-                        <td class="value">Enable navigation for slider by setting its value to <span class="selected">true</span>.
-                            Default styles of navigation items can easily be rewritten by changing <span class="selected">.c_prev</span> and <span class="selected">.c_next</span> CSS styles </td>
-                    </tr>
-                    <tr>
-                        <td class="key">navigation_text:</td>
-                        <td class="default">["Prev","Next"]</td>
-                        <td class="value">Allows you to customize the HTML for the "Next"/"Prev" arrows, but the <span class="selected">navigation</span> option should be set to true</td>
+                        <td class="key">position:</td>
+                        <td class="default">"bottom"</td>
+                        <td class="value">Allows you to set position of sidebar, by default it is set to <span class="selected">left</span>,
+                        but you can position sidebar from left or right sides of a slider</td>
                     </tr>
                     <tr>
                         <td class="key">caption:</td>
@@ -191,21 +230,74 @@
                 </table>
             </div>
         </section>
+        <section class="description">
+            <h3>Change sidebar's position</h3>
+            <div class="section_content">
+                <p>
+                    The location of sidebar can easily be customized by changing it's <span class="selected">position</span> in options.
+                </p>
+                <div class="gif">
+                    <img src="img/change-sidebar-position.gif" alt="change sidebar's position"/>
+                </div>
+            </div>    
+        </section>
+        <section class="description">
+            <h3>Set captions</h3>
+            <div class="section_content">
+                <p>
+                    The location of sidebar can easily be customized by changing it's <span class="selected">position</span> in options.
+                </p>
+                <pre class="cnt_code">
+                    <code>
+                        <div><span><</span>div <span class="cnt_attr">id</span>=<span class="cnt_string">"my_gallery"</span> class=<span class="cnt_string">"my_gallery"</span>> </div>
+                        <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"c_thumbnails"</span>></div>
+                        <div class="cnt_ul">
+                            <div>
+                                <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>><br>
+                                <span class="cnt_img"><</span>img &nbsp;<span class="cnt_attr">src</span>="path/to/image.jpg" &nbsp;<span class="cnt_attr">alt</span>="img"<span class="cnt_attr">/></span>
+                                <br>
+                                <span class="cnt_img"><</span>div &nbsp;<span class="cnt_attr">class</span>=<span class="cnt_string">"c_caption"</span><span>></span> Caption Label <span><</span>/div></span>
+                                <br><span><</span> <span class="cnt_attr">/li></span>
+                            </div>
+                            <div>
+                                <span class="cnt_attr"><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>><br>
+                                <span class="cnt_img"><</span>img &nbsp;<span class="cnt_attr">src</span>="path/to/image.jpg" &nbsp;<span class="cnt_attr">alt</span>="img"<span class="cnt_attr">/></span>
+                                <br>
+                                <span class="cnt_img"><</span>div &nbsp;<span class="cnt_attr">class</span>=<span class="cnt_string">"c_caption"</span><span>></span> Caption Label <span><</span>/div></span>
+                                <br><span><</span> <span class="cnt_attr">/li></span>
+                            </div>
+                        </div>
+                        <div class="cnt_html"><span><</span>/ul></div>
+                        <span><</span>/div>
+                    </code>
+                </pre>
+            </div>
+        </section>
+        <section class="description">
+            <h3>Mobile layout</h3>
+            <div class="section_content">
+                <p>
+                    The sidebar becomes hidden in mobile viewport, but the slider is function and the images can be changed easily.
+                </p>
+                <div class="gif">
+                    <img src="img/responisve-layout.gif" alt="Responsive layout"/>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="js/jquery/jquery-2.1.3.min.js"></script>
     <script src="js/centipede.js"></script>
     <script>
+
         $( document ).ready(function() {
             $('#gallery').centipedejs({
-                hover: false,
-                mrg: 5,
-                navigation: true,
-                navigation_text: ["Prev","Next"],
-                caption: true,
-                fade_effect: false,
+                position: "left",
+                caption: true
             });
         });
+
     </script>
+
 </body>
 </html>
