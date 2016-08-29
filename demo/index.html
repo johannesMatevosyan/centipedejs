@@ -157,38 +157,43 @@
                                     <span><</span> /div> <br>
                                 </div>
 
-                                <div>
-                                    <div class="cnt_html">
-                                        <span class="cnt_comments"><span><</span>!-- List of thumbnail images --<span>> </span></span>
+                                <div class="cnt_html">
+                                    <span><</span>div <span class="cnt_attr">class</span>=<span class="cnt_string">"c_sidebar"</span>>
+                                    <div>
+                                        <div class="cnt_html">
+                                            <span class="cnt_comments"><span><</span>!-- List of thumbnail images --<span>> </span></span>
+                                        </div>
                                     </div>
+                                    <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"c_thumbnails"</span>></div>
+                                    <div class="cnt_ul">
+                                        <div>
+                                            <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
+                                                <br>
+                                                    <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/1.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
+                                                <br>
+                                            <span><</span> <span>/li></span>
+                                        </div>
+                                        <div>
+                                            <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
+                                                <br>
+                                                    <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/2.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
+                                                <br>
+                                            <span><</span> <span>/li></span>
+                                        </div>
+                                        <div>
+                                            <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
+                                                <br>
+                                                    <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/3.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
+                                                <br>
+                                            <span><</span> <span>/li></span>
+                                        </div>
+                                        <div> <span><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> ... <span><</span> <span>/li></span> </div>
+                                    </div>
+                                    <div class="cnt_html"><span><</span>/ul></div>
+                                    <span><</span>/div><br>
+
                                 </div>
-                                <div class="cnt_html"><span><</span>ul class=<span class="cnt_string">"c_thumbnails"</span>></div>
-                                <div class="cnt_ul">
-                                    <div>
-                                        <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
-                                            <br>
-                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/1.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
-                                            <br>
-                                        <span><</span> <span>/li></span>
-                                    </div>
-                                    <div>
-                                        <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
-                                            <br>
-                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/2.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
-                                            <br>
-                                        <span><</span> <span>/li></span>
-                                    </div>
-                                    <div>
-                                        <</span>li</span> class=<span class="cnt_string">"c_item"</span>>
-                                            <br>
-                                                <span class="cnt_img"><</span> img &nbsp;<span class="cnt_attr">src</span>="img/3.jpg" <span class="cnt_attr">alt</span>="My Slider"<span>> </span>
-                                            <br>
-                                        <span><</span> <span>/li></span>
-                                    </div>
-                                    <div> <span><span><</span>li</span> class=<span class="cnt_string">"c_item"</span>> ... <span><</span> <span>/li></span> </div>
-                                </div>
-                                <div class="cnt_html"><span><</span>/ul></div>
-                                <span><</span>/div>
+                                <span><</span> /div> <br>
                             </code>
                         </pre>
                     </li>
@@ -300,7 +305,7 @@
 
         $( document ).ready(function() {
             $('#gallery').centipedejs({
-                position: "bottom",
+                position: "left",
                 caption: true
             });
         });
