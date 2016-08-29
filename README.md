@@ -105,11 +105,8 @@ Include the CSS at the top of your page in your tag:
 ```js
 
 $(' #centipede ').centipede({
-    hover :  true,
-    mrg :  5,
-    navigation :  true,
-    navigation_text :  ["prev","next"],
-    caption :  false,
+    position :  "bottom",
+    caption :  false
 });
 
 ```
@@ -121,24 +118,9 @@ $(' #centipede ').centipede({
         <td><h4>Description</h4></td>
     </tr>
     <tr>
-        <td class="key">hover:</td>
-        <td class="default">false</td>
-        <td class="value">You can add opacity effect on thumbnail images while mouse over event by setting this option to <span class="selected">true</span></td>
-    </tr>
-    <tr>
-        <td class="key">mrg:</td>
-        <td class="default">margin-right: 5px</td>
-        <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
-    </tr>
-    <tr>
-        <td class="key">navigation:</td>
-        <td class="default">false</td>
-        <td class="value"></td>
-    </tr>
-    <tr>
-        <td class="key">navigation_text:</td>
-        <td class="default">["Prev","Next"]</td>
-        <td class="value">Allows you to customize the HTML for the "Next"/"Prev" arrows, but the <span class="selected">navigation</span> should be set to true</td>
+        <td class="key">position:</td>
+        <td class="default">"bottom"</td>
+        <td class="value">Allows you to set position of sidebar, by default it is set to left, but you can position sidebar from left or right sides of a slider </td>
     </tr>
     <tr>
         <td class="key">caption:</td>
