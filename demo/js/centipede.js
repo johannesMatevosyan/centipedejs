@@ -16,7 +16,6 @@ $( document ).ready(function() {
                 caption: settings.caption
             };
 
-            console.log(centipedejs.position);
             set_css(centipedejs);
             set_arrows();
             set_main_image(centipedejs);
@@ -36,16 +35,16 @@ function set_arrows(){
     $('<span class="c_sidebar_nav next"></span>').insertAfter('.c_sidebar');
 
     if($(window).width() <= '360') {
-        $('.main').find('.c_main_nav.prev').remove();
-        $('.main').find('.c_main_nav.next').remove();
+        $('.c_main').find('.c_main_nav.prev').remove();
+        $('.c_main').find('.c_main_nav.next').remove();
         $('<span class="c_main_nav prev"></span>').insertBefore('#wrap_inner');
         $('<span class="c_main_nav next"></span>').insertAfter('#wrap_inner');
     }
 
     $(window).resize(function() {
         if($(window).width() <= '360') {
-            $('.main').find('.c_main_nav.prev').remove();
-            $('.main').find('.c_main_nav.next').remove();
+            $('.c_main').find('.c_main_nav.prev').remove();
+            $('.c_main').find('.c_main_nav.next').remove();
             $('<span class="c_main_nav prev"></span>').insertBefore('#wrap_inner');
             $('<span class="c_main_nav next"></span>').insertAfter('#wrap_inner');
         }
@@ -55,7 +54,7 @@ function set_arrows(){
 function set_css(centipedejs){
 
 
-    var inner = $("#inner"),
+    var inner = $("#c_inner"),
         sidebar_item = $('.c_thumbnails .c_item'),
         def_caption,
         def_src = inner.find('img').attr('src');
@@ -154,7 +153,7 @@ function set_css(centipedejs){
 
 function change_image(centipedejs){
 
-    var inner = $("#inner");
+    var inner = $("#c_inner");
 
     $('.c_sidebar ul .c_item').on('click', function(){
 
@@ -167,7 +166,7 @@ function change_image(centipedejs){
 
         // temporarily change some values to make the
         //  scrolling smooth...
-        var images = $("#inner img");
+        var images = $("#c_inner img");
         var img_count = images.length,
             img_width = images.width();
 
@@ -194,11 +193,11 @@ function change_image(centipedejs){
 
 function set_main_image(centipedejs){
 
-    var inner = $("#inner");
+    var inner = $("#c_inner");
 
     if($(window).width() <= '360'){
 
-        $('.main .prev').on('click', function(){
+        $('.c_main .prev').on('click', function(){
             var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
                 slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
                 sidebar = $('.c_thumbnails .c_item');
@@ -224,7 +223,7 @@ function set_main_image(centipedejs){
 
                     // temporarily change some values to make the
                     //  scrolling smooth...
-                    var images = $("#inner img");
+                    var images = $("#c_inner img");
                     var img_count = images.length,
                         img_width = images.width();
 
@@ -249,7 +248,7 @@ function set_main_image(centipedejs){
             }
 
         });
-        $('.main .next').on('click', function(){
+        $('.c_main .next').on('click', function(){
             var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
                 slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
                 sidebar = $('.c_thumbnails .c_item');
@@ -280,7 +279,7 @@ function set_main_image(centipedejs){
 
                     // temporarily change some values to make the
                     //  scrolling smooth...
-                    var images = $("#inner img");
+                    var images = $("#c_inner img");
                     var img_count = images.length,
                         img_width = images.width();
 
@@ -311,7 +310,7 @@ function set_main_image(centipedejs){
         if($(window).width() <= '360') {
 
 
-            $('.main .prev').on('click', function(){
+            $('.c_main .prev').on('click', function(){
 
                 var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
                     slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
@@ -338,7 +337,7 @@ function set_main_image(centipedejs){
 
                         // temporarily change some values to make the
                         //  scrolling smooth...
-                        var images = $("#inner img");
+                        var images = $("#c_inner img");
                         var img_count = images.length,
                             img_width = images.width();
 
@@ -363,7 +362,7 @@ function set_main_image(centipedejs){
                 }
 
             });
-            $('.main .next').on('click', function(){
+            $('.c_main .next').on('click', function(){
                 var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
                     slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
                     sidebar = $('.c_thumbnails .c_item');
@@ -394,7 +393,7 @@ function set_main_image(centipedejs){
 
                         // temporarily change some values to make the
                         //  scrolling smooth...
-                        var images = $("#inner img");
+                        var images = $("#c_inner img");
                         var img_count = images.length,
                             img_width = images.width();
 

@@ -54,7 +54,7 @@ body{
 }
 #photographer{
     display: block;
-    width: 80%;
+    width: 630px;
     text-align: right;
     margin: 5px auto 30px;
     font-size: 12px;
@@ -206,7 +206,7 @@ pre.cnt_code code .options_js_val{
     width: 480px;
     height: 403px;
 }
-.main #inner{
+.c_main #c_inner{
     overflow: hidden;
 }
 .c_left #wrap_inner,
@@ -228,20 +228,20 @@ pre.cnt_code code .options_js_val{
 
 
 /* left c_sidebar */
-.c_left .main{
+.c_left .c_main{
     position: relative;
     padding-left: 130px;
     height: 100%;
 }
-.c_left .main #inner img,
-.c_right .main #inner img{
+.c_left .c_main #c_inner img,
+.c_right .c_main #c_inner img{
     display: block;
     float: left;
     width: 500px;
     height: 333px;
     position: relative;
 }
-.c_bottom .main #inner img{
+.c_bottom .c_main #c_inner img{
     display: block;
     float: left;
     width: 480px;
@@ -292,12 +292,12 @@ pre.cnt_code code .options_js_val{
 
 /* right c_sidebar */
 
-.c_right .main{
+.c_right .c_main{
     position: relative;
     padding-right: 130px;
     height: 100%;
 }
-.c_right .main{
+.c_right .c_main{
     width: 100%;
     padding-right: 130px;
 }
@@ -329,7 +329,7 @@ pre.cnt_code code .options_js_val{
 
 /* bottom c_sidebar */
 
-.c_bottom .main{
+.c_bottom .c_main{
     position: relative;
 }
 .c_bottom .c_sidebar{
@@ -392,15 +392,15 @@ pre.cnt_code code .options_js_val{
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 640px) {
-    .c_left .main{
+    .c_left .c_main{
         padding-left: 95px;
     }
     .c_left, .c_right{
         width: 470px;
         height: 248px;
     }
-    .c_left .main #inner img,
-    .c_right .main #inner img{
+    .c_left .c_main #c_inner img,
+    .c_right .c_main #c_inner img{
         width: 375px;
         height: 248px;
     }
@@ -412,7 +412,7 @@ pre.cnt_code code .options_js_val{
     .c_left .c_sidebar_nav{
         left: 32.5px;
     }
-    .c_right .main{
+    .c_right .c_main{
         padding-right: 95px;
     }
     .c_right .c_sidebar_nav{
@@ -421,7 +421,7 @@ pre.cnt_code code .options_js_val{
     .c_bottom{
         height: 320px;
     }
-    .c_bottom .main #inner img{
+    .c_bottom .c_main #c_inner img{
         width: 480px;
     }
 }
@@ -430,8 +430,8 @@ pre.cnt_code code .options_js_val{
         width: 350px;
         height: 190px;
     }
-    .c_left .main #inner img,
-    .c_right .main #inner img{
+    .c_left .c_main #c_inner img,
+    .c_right .c_main #c_inner img{
         width: 285px;
         height: 190px;
     }
@@ -445,10 +445,10 @@ pre.cnt_code code .options_js_val{
     .c_right .c_sidebar_nav {
         right:21px;
     }
-    .c_left .main {
+    .c_left .c_main {
         padding-left: 70px;
     }
-    .c_right .main {
+    .c_right .c_main {
         padding-right: 70px;
     }
     .c_bottom {
@@ -458,7 +458,7 @@ pre.cnt_code code .options_js_val{
     .c_bottom .c_sidebar_nav {
         bottom: 15px;
     }
-    .c_bottom .main #inner img{
+    .c_bottom .c_main #c_inner img{
         width: 360px;
         height: 233px;
     }
@@ -478,19 +478,19 @@ pre.cnt_code code .options_js_val{
     .c_bottom .c_sidebar_nav {
         display: none;
     }
-    .c_left .main #inner img,
-    .c_right .main #inner img{
+    .c_left .c_main #c_inner img,
+    .c_right .c_main #c_inner img{
         width: 300px;
         height: 200px;
     }
-    .c_bottom .main #inner img{
+    .c_bottom .c_main #c_inner img{
         width: 300px;
         height: 200px;
     }
-    .c_left .main {
+    .c_left .c_main {
         padding-left: 0;
     }
-    .c_right .main {
+    .c_right .c_main {
         padding-right: 0;
     }
     .c_left .c_sidebar_nav.prev,

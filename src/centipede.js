@@ -4,282 +4,417 @@ $( document ).ready(function() {
         $.fn.centipedejs = function(options){
             var settings = $.extend({
                 target : this.selector,
-                navigation: true,
-                navigation_text: ["back","forward"],
-                caption: false,
-                fade_effect: false,
-                hover: true,
-                mrg : 5
+                position: "left",
+                caption: false
             }, options );
 
             var centipedejs = {
                 target: settings.target,
-                active_class : "active",
-                c_large : "c_large_item",
-                c_thumbnails : "c_thumbnails",
-                c_item : "c_item",
-                c_s_caption: "show_caption",
-                hover: settings.hover,
-                navigation: settings.navigation,
-                navigation_text: settings.navigation_text,
-                caption: settings.caption,
-                fade_effect: settings.fade_effect,
-                mrg: settings.mrg,
-                count : $(settings.target + ' .c_thumbnails').find('.c_item').length,
-                dot : '.',
-                blank : ' '
+                sidebar: "sidebar",
+                active_class : "c_active",
+                position: settings.position,
+                caption: settings.caption
             };
 
             set_css(centipedejs);
+            set_arrows();
+            set_main_image(centipedejs);
             change_image(centipedejs);
-            set_navigation(centipedejs);
 
             return this;
         };
     }(jQuery));
 
+
+
 });
 
+function set_arrows(){
 
-// set image dimensions
-function set_css(centipedejs){
+    $('<span class="c_sidebar_nav prev"></span>').insertBefore('.c_sidebar');
+    $('<span class="c_sidebar_nav next"></span>').insertAfter('.c_sidebar');
 
-    // set width and height of small images
-    function roundDown(number, decimals) {
-        decimals = decimals || 0;
-        return ( Math.floor( number * Math.pow(10, decimals) ) / Math.pow(10, decimals) );
+    if($(window).width() <= '360') {
+        $('.c_main').find('.c_main_nav.prev').remove();
+        $('.c_main').find('.c_main_nav.next').remove();
+        $('<span class="c_main_nav prev"></span>').insertBefore('#wrap_inner');
+        $('<span class="c_main_nav next"></span>').insertAfter('#wrap_inner');
     }
 
-    var img_right_margin = centipedejs.mrg;
-
-    if(img_right_margin >= 0){
-
-        var row_width = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails)[0].getBoundingClientRect().width;
-        var mrg = img_right_margin * (centipedejs.count - 1);
-
-        if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
-            // Do something in Firefox
-            var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 1);
-        }else{
-            var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 3);
+    $(window).resize(function() {
+        if($(window).width() <= '360') {
+            $('.c_main').find('.c_main_nav.prev').remove();
+            $('.c_main').find('.c_main_nav.next').remove();
+            $('<span class="c_main_nav prev"></span>').insertBefore('#wrap_inner');
+            $('<span class="c_main_nav next"></span>').insertAfter('#wrap_inner');
         }
+    });
+}
 
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({
-            'width' : small_img_w,
-            'margin-right' : img_right_margin
-        });
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':last-child').css({
-            'margin-right' : 0
-        });
+function set_css(centipedejs){
 
-        // hide thumbnails in responsive layout
-        if($(window).width() <= '500'){
-            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
+    var inner = $("#c_inner"),
+        sidebar_item = $('.c_thumbnails .c_item'),
+        def_caption,
+        def_src = inner.find('img').attr('src');
+
+    sidebar_item.each(function(){
+        // search caption for first image
+        var search_caption = $(this).find('img').attr('src');
+        if(def_src == search_caption){
+            def_caption = $(this).find('.c_caption').text();
+            $(this).addClass(centipedejs.active_class);
         }
+    });
 
+    if(centipedejs.caption){
+        inner.find('.c_main_caption').remove();
+        inner.append('<div class="c_main_caption">' + def_caption + '</div>');
+    }
 
-        $(window).resize(function(){
+    if(centipedejs.position == "bottom"){
 
-            var row_width = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails)[0].getBoundingClientRect().width;
-            var mrg = img_right_margin * (centipedejs.count - 1);
+        // horizontal sidebar in the bottom
+        $(centipedejs.target).addClass('c_bottom');
 
-            if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ){
-                // Do something in Firefox
-                var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 1);
-            }else{
-                var small_img_w = roundDown((row_width - mrg)/centipedejs.count, 3);
-            }
+        var link,
+            item_width = sidebar_item.outerWidth(),
+            count = sidebar_item.length;
 
-            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({
-                'width' : small_img_w,
-                'margin-right' : img_right_margin
-            });
-            $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item + ':last-child').css({
-                'margin-right' : 0
-            });
+        $('.c_thumbnails').width(item_width * count);
 
-            // hide thumbnails in responsive layout
-            if($(window).width() <= '500'){
-                $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'none'});
-            }else{
-                $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_thumbnails + centipedejs.blank + centipedejs.dot + centipedejs.c_item).css({'display': 'inherit'});
-            }
-
+        $(document).on('click', '.c_sidebar_nav.prev', function(){
+            link = 'prev';
+            change_horizontal_slides(link);
         });
+        $(document).on('click', '.c_sidebar_nav.next', function(){
+            link = 'next';
+            change_horizontal_slides(link);
+        });
+
+    }else if(centipedejs.position == "left"){
+
+        // right side vertical sidebar
+        $(centipedejs.target).addClass('c_left');
+        var link;
+
+        $(document).on('click', '.c_sidebar_nav.prev', function(){
+            link = 'prev';
+            change_vertical_slides(link);
+        });
+        $(document).on('click', '.c_sidebar_nav.next', function(){
+            link = 'next';
+            change_vertical_slides(link);
+        });
+
+    }else if(centipedejs.position == "right"){
+        // right side vertical sidebar
+        $(centipedejs.target).addClass('c_right');
+        var link;
+
+        $(document).on('click', '.c_sidebar_nav.prev', function(){
+            link = 'prev';
+            change_vertical_slides(link);
+        });
+        $(document).on('click', '.c_sidebar_nav.next', function(){
+            link = 'next';
+            change_vertical_slides(link);
+        });
+
+    }
+
+    function change_horizontal_slides(link){
+        var sidebar = $('.c_sidebar');
+        var width = sidebar.width();
+        var leftPos = $('.c_sidebar').scrollLeft();
+        if(link == 'prev'){
+            sidebar.animate({scrollLeft: leftPos - width});
+        }else if(link == 'next'){
+            sidebar.animate({scrollLeft: leftPos + width});
+        }
+    }
+
+    function change_vertical_slides(link){
+        var sidebar = $('.c_sidebar');
+        var height = sidebar.height();
+        var topPos = $('.c_sidebar').scrollTop();
+        if(link == 'prev'){
+            sidebar.animate({scrollTop: topPos - height});
+        }else if(link == 'next'){
+            sidebar.animate({scrollTop: topPos + height});
+        }
     }
 
 }
 
-// swap images after click
 function change_image(centipedejs){
 
-    var active_item_src;
-    var active_item_alt;
-    var set_caption;
+    var inner = $("#c_inner");
 
-    $(centipedejs.target + centipedejs.blank + '.c_item:first').addClass(centipedejs.active_class);
+    $('.c_sidebar ul .c_item').on('click', function(){
 
-    active_item_src = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item + centipedejs.dot + centipedejs.active_class).find('img').attr('src');
-    active_item_alt = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item + centipedejs.dot + centipedejs.active_class).find('img').attr('alt');
+        var src = $(this).find('img').attr('src'),
+            alt = $(this).find('img').attr('alt'),
+            c_main_caption = $(this).find('.c_caption').text();
 
-    $(centipedejs.target).prepend('<div class="' + centipedejs.c_large + '"><img src="' + active_item_src + '" alt="' + active_item_alt +'"></div>');
+        // Create a copy of the image in the slider...
+        inner.append('<img src="' + src + '" alt="' + alt +'">');
 
+        // temporarily change some values to make the
+        //  scrolling smooth...
+        var images = $("#c_inner img");
+        var img_count = images.length,
+            img_width = images.width();
 
-    // set opacity
-    if(centipedejs.hover){
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large).find('img').addClass('img_opacity');
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item).find('img').addClass('img_opacity');
-    }
+        inner.width(img_width * img_count);
 
-    // set caption
-    if(centipedejs.caption){
-        $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large).append('<div class="' + centipedejs.c_s_caption + '"></div>');
-        set_caption = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item + centipedejs.dot + centipedejs.active_class).find('.c_caption').text();
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large).find(centipedejs.dot + centipedejs.c_s_caption).text(set_caption);
-    }else{
-        $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
-    }
+        // ...set up the scrolling...
+        var wrap_inner = $('#wrap_inner');
+        var leftPos = wrap_inner.scrollLeft();
+        wrap_inner.animate(
+            {scrollLeft: leftPos + img_width}, 250, function(){
+                inner.width(images.width()).find("img:first").remove()
 
-    $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item).on('click', function(){
+                if(c_main_caption != '' && c_main_caption != null && centipedejs.caption == true){
+                    inner.find('.c_main_caption').remove();
+                    inner.append('<div class="c_main_caption">' + c_main_caption + '</div>');
+                }
+            });
 
-        if(!$(this).hasClass(centipedejs.active_class)){
-            $(this).siblings().removeClass(centipedejs.active_class);
-            $(this).addClass(centipedejs.active_class);
-
-            active_item_src = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item + centipedejs.dot + centipedejs.active_class).find('img').attr('src');
-            active_item_alt = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item + centipedejs.dot + centipedejs.active_class).find('img').attr('alt');
-
-            if(centipedejs.fade_effect){
-                $(this).closest(centipedejs.dot + centipedejs.c_thumbnails).siblings(centipedejs.dot + centipedejs.c_large).find('img').fadeOut(400, function() {
-                    $(this).attr({
-                        'src': active_item_src,
-                        'alt': active_item_alt
-                    });
-                }).fadeIn(400);
-                $(this).addClass(centipedejs.active_class);
-            }else{
-                $(this).closest(centipedejs.dot + centipedejs.c_thumbnails).siblings(centipedejs.dot + centipedejs.c_large).find('img').attr({
-                    'src': active_item_src,
-                    'alt': active_item_alt
-                });
-                $(this).addClass(centipedejs.active_class);
-            }
-
-            if(centipedejs.caption){
-                set_caption = $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_item + centipedejs.dot + centipedejs.active_class).find('.c_caption').text();
-                $(this).closest(centipedejs.dot + centipedejs.c_thumbnails).siblings(centipedejs.dot + centipedejs.c_large).find(centipedejs.dot + centipedejs.c_s_caption).text(set_caption);
-            }else{
-                $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
-            }
-
-
-        }
-
-        return false;
+        $('.c_thumbnails .c_item').removeClass(centipedejs.active_class);
+        $(this).addClass(centipedejs.active_class);
     });
 
 }
 
-function set_caption_text(centipedejs, caption_text){
+function set_main_image(centipedejs){
 
-    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
-    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large).append('<div class="' + centipedejs.c_s_caption + '"></div>');
-    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large).find(centipedejs.dot + centipedejs.c_s_caption).text(caption_text);
+    var inner = $("#c_inner");
 
-}
+    if($(window).width() <= '360'){
 
-// set navigation
-function set_navigation(centipedejs){
+        $('.c_main .prev').on('click', function(){
+            var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
+                slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+                sidebar = $('.c_thumbnails .c_item');
 
-    if(centipedejs.navigation){
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large).append('<div class="c_nav">' +
-            '<div class="c_prev">' + centipedejs.navigation_text[0] + '</div><div class="c_next">' + centipedejs.navigation_text[1] + '</div>' +
-            '</div>');
+            for(var i = 1; i <= sidebar.length; i++ ){
 
-        $(centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + '.c_prev').on('click', function(){
-
-            var index = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find('.c_item.active').index();
-            if(index == 0){
-
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).removeClass('active');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index-1).addClass('active');
-                var set_src = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find('.c_item:last').find('img').attr('src');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).find('img').attr('src', set_src);
-
-                // Set caption text
-                if(centipedejs.caption){
-                    var caption_text = $(this).closest(centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index-1).find('.c_caption').text();
-                    set_caption_text(centipedejs, caption_text);
+                if(i - 1 == 0){
+                    var subtract_one = sidebar.length,
+                        nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                        s_src = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('src'),
+                        s_alt = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('alt'),
+                        c_main_caption = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('.c_caption').text();
                 }else{
-                    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
+                    var subtract_one = i - 1,
+                        nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                        s_src = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('src'),
+                        s_alt = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('alt'),
+                        c_main_caption = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('.c_caption').text();
                 }
 
-            }
-            if(index <= centipedejs.count - 1 && index != 0){
+                if(slide_src == nth){
+                    inner.append('<img src="' + s_src + '" alt="' + s_alt +'">');
 
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).removeClass('active');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index - 1).addClass('active');
-                var set_src = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index - 1).find('img').attr('src');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).find('img').attr('src', set_src);
+                    // temporarily change some values to make the
+                    //  scrolling smooth...
+                    var images = $("#c_inner img");
+                    var img_count = images.length,
+                        img_width = images.width();
 
-                if(centipedejs.caption){
-                    var caption_text = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index - 1).find('.c_caption').text();
-                    set_caption_text(centipedejs, caption_text);
-                }else{
-                    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
+                    inner.width(img_width * img_count);
+
+                    // ...set up the scrolling...
+                    var wrap_inner = $('#wrap_inner');
+                    var leftPos = wrap_inner.scrollLeft();
+                    var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
+                    wrap_inner.animate(
+                        {scrollLeft: leftPos - img_width},
+                        250,
+                        function(){
+                            inner.width(images.width()).find("img:first").remove();
+
+                            if(c_main_caption != '' && c_main_caption != null && centipedejs.caption == true){
+                                inner.find('.c_main_caption').remove();
+                                inner.append(app);
+                            }
+                        });
                 }
             }
 
         });
+        $('.c_main .next').on('click', function(){
+            var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
+                slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+                sidebar = $('.c_thumbnails .c_item');
 
-        $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + '.c_next').on('click', function(){
+            for(var i = 1; i <= sidebar.length; i++ ){
 
-            var index = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find('.c_item.active').index();
-            if(index == 0){
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).removeClass('active');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index + 1).addClass('active');
-                var set_src = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index + 1).find('img').attr('src');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).find('img').attr('src', set_src);
-
-                // Set caption text
-                if(centipedejs.caption){
-                    var caption_text = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index + 1).find('.c_caption').text();
-                    set_caption_text(centipedejs, caption_text);
+                if(i == sidebar.length){
+                    var add_one = 1,
+                        nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                        s_src = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('src'),
+                        s_alt = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('alt');
+                    if(centipedejs.caption) {
+                        var c_main_caption = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('.c_caption').text();
+                    }
                 }else{
-                    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
+                    var add_one = i + 1,
+                        nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                        s_src = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('src'),
+                        s_alt = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('alt');
+                    if(centipedejs.caption) {
+                        var c_main_caption = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('.c_caption').text();
+                    }
+
+                }
+
+                if(slide_src == nth){
+                    inner.append('<img src="' + s_src + '" alt="' + s_alt +'">');
+
+                    // temporarily change some values to make the
+                    //  scrolling smooth...
+                    var images = $("#c_inner img");
+                    var img_count = images.length,
+                        img_width = images.width();
+
+                    inner.width(img_width * img_count);
+
+                    // ...set up the scrolling...
+                    var wrap_inner = $('#wrap_inner');
+                    var leftPos = wrap_inner.scrollLeft();
+                    var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
+                    wrap_inner.animate(
+                        {scrollLeft: leftPos + img_width},
+                        250,
+                        function(){
+                            inner.width(images.width()).find("img:first").remove();
+
+                            if(c_main_caption != '' && c_main_caption != null && centipedejs.caption == true){
+                                inner.find('.c_main_caption').remove();
+                                inner.append(app);
+                            }
+                        });
                 }
             }
-            if(index < centipedejs.count - 1 && index != 0){
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).removeClass('active');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index + 1).addClass('active');
-                var set_src = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index + 1).find('img').attr('src');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).find('img').attr('src', set_src);
 
-                // Set caption text
-                if(centipedejs.caption){
-                    var caption_text = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index + 1).find('.c_caption').text();
-                    set_caption_text(centipedejs, caption_text);
-                }else{
-                    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
-                }
-            }
-            if(index == centipedejs.count - 1 && index != 0){
-                index = 0;
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).removeClass('active');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find('.c_item:first').addClass('active');
-                var set_src = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find(centipedejs.blank + centipedejs.dot + centipedejs.c_item).eq(index).find('img').attr('src');
-                $(this).closest(centipedejs.dot + centipedejs.c_large).find('img').attr('src', set_src);
-
-                // Set caption text
-                if(centipedejs.caption){
-                    var caption_text = $(this).closest(centipedejs.dot + centipedejs.c_large).siblings(centipedejs.dot + centipedejs.c_thumbnails).find('.c_item:first').eq(index).find('.c_caption').text();
-                    set_caption_text(centipedejs, caption_text);
-                }else{
-                    $(centipedejs.blank + centipedejs.target + centipedejs.blank + centipedejs.dot + centipedejs.c_large + centipedejs.blank + centipedejs.dot + centipedejs.c_s_caption).remove();
-                }
-            }
         });
-
     }
+
+    $(window).resize(function() {
+        if($(window).width() <= '360') {
+
+            $('.c_main .prev').on('click', function(){
+
+                var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
+                    slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+                    sidebar = $('.c_thumbnails .c_item');
+
+                for(var i = 1; i <= sidebar.length; i++ ){
+
+                    if(i - 1 == 0){
+                        var subtract_one = sidebar.length,
+                            nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                            s_src = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('src'),
+                            s_alt = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('alt'),
+                            c_main_caption = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('.c_caption').text();
+                    }else{
+                        var subtract_one = i - 1,
+                            nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                            s_src = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('src'),
+                            s_alt = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('img').attr('alt'),
+                            c_main_caption = $('.c_thumbnails .c_item:nth-child(' + subtract_one + ')').find('.c_caption').text();
+                    }
+
+                    if(slide_src == nth){
+                        inner.append('<img src="' + s_src + '" alt="' + s_alt +'">');
+
+                        // temporarily change some values to make the
+                        //  scrolling smooth...
+                        var images = $("#c_inner img");
+                        var img_count = images.length,
+                            img_width = images.width();
+
+                        inner.width(img_width * img_count);
+
+                        // ...set up the scrolling...
+                        var wrap_inner = $('#wrap_inner');
+                        var leftPos = wrap_inner.scrollLeft();
+                        var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
+                        wrap_inner.animate(
+                            {scrollLeft: leftPos - img_width},
+                            250,
+                            function(){
+                                inner.width(images.width()).find("img:first").remove();
+
+                                if(c_main_caption != '' && c_main_caption != null && centipedejs.caption == true){
+                                    inner.find('.c_main_caption').remove();
+                                    inner.append(app);
+                                }
+                            });
+                    }
+                }
+
+            });
+            $('.c_main .next').on('click', function(){
+                var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
+                    slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+                    sidebar = $('.c_thumbnails .c_item');
+
+                for(var i = 1; i <= sidebar.length; i++ ){
+
+                    if(i == sidebar.length){
+                        var add_one = 1,
+                            nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                            s_src = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('src'),
+                            s_alt = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('alt');
+                        if(centipedejs.caption) {
+                            var c_main_caption = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('.c_caption').text();
+                        }
+                    }else{
+                        var add_one = i + 1,
+                            nth = $('.c_thumbnails .c_item:nth-child(' + i + ')').find('img').attr('src'),
+                            s_src = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('src'),
+                            s_alt = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('img').attr('alt');
+                        if(centipedejs.caption) {
+                            var c_main_caption = $('.c_thumbnails .c_item:nth-child(' + add_one + ')').find('.c_caption').text();
+                        }
+
+                    }
+
+                    if(slide_src == nth){
+                        inner.append('<img src="' + s_src + '" alt="' + s_alt +'">');
+
+                        // temporarily change some values to make the
+                        //  scrolling smooth...
+                        var images = $("#c_inner img");
+                        var img_count = images.length,
+                            img_width = images.width();
+
+                        inner.width(img_width * img_count);
+
+                        // ...set up the scrolling...
+                        var wrap_inner = $('#wrap_inner');
+                        var leftPos = wrap_inner.scrollLeft();
+                        var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
+                        wrap_inner.animate(
+                            {scrollLeft: leftPos + img_width},
+                            250,
+                            function(){
+                                inner.width(images.width()).find("img:first").remove();
+
+                                if(c_main_caption != '' && c_main_caption != null && centipedejs.caption == true){
+                                    inner.find('.c_main_caption').remove();
+                                    inner.append(app);
+                                }
+                            });
+                    }
+                }
+
+            });
+
+        }
+    });
 
 }
