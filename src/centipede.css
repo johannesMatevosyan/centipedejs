@@ -48,8 +48,12 @@
 }
 
 
-
 /* left c_sidebar */
+.c_thumbnails{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 .c_left .c_main{
     position: relative;
     padding-left: 130px;

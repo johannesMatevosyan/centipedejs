@@ -26,7 +26,6 @@ $( document ).ready(function() {
     }(jQuery));
 
 
-
 });
 
 function set_arrows(){
@@ -52,8 +51,7 @@ function set_arrows(){
 }
 
 function set_css(centipedejs){
-
-
+    
     var inner = $("#c_inner"),
         sidebar_item = $('.c_thumbnails .c_item'),
         def_caption,
