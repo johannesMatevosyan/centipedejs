@@ -13,7 +13,6 @@
 <div class="section_content">
     <ul class="browser_support_list">
         <li><span>Firefox</span></li>
-        <li><span>Safari</span></li>
         <li><span>Chrome</span></li>
         <li><span>Internet Explorer 9+</span></li>
         <li><span>Opera</span></li>
@@ -47,30 +46,42 @@ Include the CSS at the top of your page in your tag:
  Write your HTML:
 
 ```html
-
-    <div id="centipede" class="centipede"> 
-        <ul class="thumbnails">
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">Your Content </li>
-            <li class="c_item">... </li>
-        </ul>
-    </div>    
-
+    <div id="my_gallery">
+        <div class="c_main">
+            <!-- Main Slide -->
+            <div id="c_wrap_inner">
+                <div id="c_inner"> 
+                    <img  src="img/1.jpg" alt="My Slider"> 
+                </div>
+            </div>
+        </div> 
+        <div class="c_sidebar">
+            <ul class="c_thumbnails">
+                <li class="c_item">
+                    <img  src="img/1.jpg" alt="My Slider"> 
+                </li>
+                <li class="c_item">
+                    <img  src="img/2.jpg" alt="My Slider"> 
+                </li>
+                <li class="c_item">
+                    <img  src="img/3.jpg" alt="My Slider"> 
+                </li>
+                <li class="c_item">... </li>
+            </ul>
+        </div>    
+    </div>  
 ``` 
  Add caption to the image:
 
 ```html
 
-    <div id="centipede" class="centipede"> 
-        <ul class="thumbnails">
-            <li>
+    <div class="c_sidebar"> 
+        <ul class="c_thumbnails">
+            <li class="c_item">
                 <img src="path/to/image.jpg" alt="Alt">
                 <div class="c_caption">Lorem ipsum dolor sit amet</div>
             </li>
-            <li>
+            <li class="c_item">
                 <img src="path/to/image.jpg" alt="Alt">
                 <div class="c_caption">Sed ut perspiciatis unde omnis...</div>
             </li>
@@ -94,11 +105,8 @@ Include the CSS at the top of your page in your tag:
 ```js
 
 $(' #centipede ').centipede({
-    hover :  true,
-    mrg :  5,
-    navigation :  true,
-    navigation_text :  ["prev","next"],
-    caption :  false,
+    position :  "bottom",
+    caption :  false
 });
 
 ```
@@ -110,24 +118,9 @@ $(' #centipede ').centipede({
         <td><h4>Description</h4></td>
     </tr>
     <tr>
-        <td class="key">hover:</td>
-        <td class="default">false</td>
-        <td class="value">You can add opacity effect on thumbnail images while mouse over event by setting this option to <span class="selected">true</span></td>
-    </tr>
-    <tr>
-        <td class="key">mrg:</td>
-        <td class="default">margin-right: 5px</td>
-        <td class="value">By default all thumbnails except the last one have a right margin. This allows to regulate a distance between images.</td>
-    </tr>
-    <tr>
-        <td class="key">navigation:</td>
-        <td class="default">false</td>
-        <td class="value"></td>
-    </tr>
-    <tr>
-        <td class="key">navigation_text:</td>
-        <td class="default">["Prev","Next"]</td>
-        <td class="value">Allows you to customize the HTML for the "Next"/"Prev" arrows, but the <span class="selected">navigation</span> should be set to true</td>
+        <td class="key">position:</td>
+        <td class="default">"bottom"</td>
+        <td class="value">Allows you to set position of sidebar, by default it is set to left, but you can position sidebar from left or right sides of a slider </td>
     </tr>
     <tr>
         <td class="key">caption:</td>
