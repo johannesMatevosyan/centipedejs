@@ -37,26 +37,28 @@ function set_arrows(){
     if($(window).width() <= '360') {
         $('.c_main').find('.c_main_nav.prev').remove();
         $('.c_main').find('.c_main_nav.next').remove();
-        $('<span class="c_main_nav prev"></span>').insertBefore('#wrap_inner');
-        $('<span class="c_main_nav next"></span>').insertAfter('#wrap_inner');
+        $('<span class="c_main_nav prev"></span>').insertBefore('#c_wrap_inner');
+        $('<span class="c_main_nav next"></span>').insertAfter('#c_wrap_inner');
     }
 
     $(window).resize(function() {
         if($(window).width() <= '360') {
             $('.c_main').find('.c_main_nav.prev').remove();
             $('.c_main').find('.c_main_nav.next').remove();
-            $('<span class="c_main_nav prev"></span>').insertBefore('#wrap_inner');
-            $('<span class="c_main_nav next"></span>').insertAfter('#wrap_inner');
+            $('<span class="c_main_nav prev"></span>').insertBefore('#c_wrap_inner');
+            $('<span class="c_main_nav next"></span>').insertAfter('#c_wrap_inner');
         }
     });
 }
 
 function set_css(centipedejs){
 
+
     var inner = $("#c_inner"),
         sidebar_item = $('.c_thumbnails .c_item'),
         def_caption,
         def_src = inner.find('img').attr('src');
+    //sidebar_item.first().addClass(centipedejs.active_class);
 
     sidebar_item.each(function(){
         // search caption for first image
@@ -71,6 +73,7 @@ function set_css(centipedejs){
         inner.find('.c_main_caption').remove();
         inner.append('<div class="c_main_caption">' + def_caption + '</div>');
     }
+
 
     if(centipedejs.position == "bottom"){
 
@@ -145,6 +148,7 @@ function set_css(centipedejs){
         }
     }
 
+
 }
 
 function change_image(centipedejs){
@@ -169,9 +173,9 @@ function change_image(centipedejs){
         inner.width(img_width * img_count);
 
         // ...set up the scrolling...
-        var wrap_inner = $('#wrap_inner');
-        var leftPos = wrap_inner.scrollLeft();
-        wrap_inner.animate(
+        var c_wrap_inner = $('#c_wrap_inner');
+        var leftPos = c_wrap_inner.scrollLeft();
+        c_wrap_inner.animate(
             {scrollLeft: leftPos + img_width}, 250, function(){
                 inner.width(images.width()).find("img:first").remove()
 
@@ -185,6 +189,14 @@ function change_image(centipedejs){
         $(this).addClass(centipedejs.active_class);
     });
 
+    $(window).resize(function() {
+        // recover main image size after window resize
+        var images = $("#c_inner img");
+        var img_count = images.length,
+            img_width = images.width();
+        inner.width(img_width * img_count);
+    });
+
 }
 
 function set_main_image(centipedejs){
@@ -194,8 +206,8 @@ function set_main_image(centipedejs){
     if($(window).width() <= '360'){
 
         $('.c_main .prev').on('click', function(){
-            var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
-                slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+            var slide_src = $(this).siblings('#c_wrap_inner').find('img').attr('src'),
+                slide_alt = $(this).siblings('#c_wrap_inner').find('img').attr('alt'),
                 sidebar = $('.c_thumbnails .c_item');
 
             for(var i = 1; i <= sidebar.length; i++ ){
@@ -226,10 +238,10 @@ function set_main_image(centipedejs){
                     inner.width(img_width * img_count);
 
                     // ...set up the scrolling...
-                    var wrap_inner = $('#wrap_inner');
-                    var leftPos = wrap_inner.scrollLeft();
+                    var c_wrap_inner = $('#c_wrap_inner');
+                    var leftPos = c_wrap_inner.scrollLeft();
                     var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
-                    wrap_inner.animate(
+                    c_wrap_inner.animate(
                         {scrollLeft: leftPos - img_width},
                         250,
                         function(){
@@ -245,8 +257,8 @@ function set_main_image(centipedejs){
 
         });
         $('.c_main .next').on('click', function(){
-            var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
-                slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+            var slide_src = $(this).siblings('#c_wrap_inner').find('img').attr('src'),
+                slide_alt = $(this).siblings('#c_wrap_inner').find('img').attr('alt'),
                 sidebar = $('.c_thumbnails .c_item');
 
             for(var i = 1; i <= sidebar.length; i++ ){
@@ -282,10 +294,10 @@ function set_main_image(centipedejs){
                     inner.width(img_width * img_count);
 
                     // ...set up the scrolling...
-                    var wrap_inner = $('#wrap_inner');
-                    var leftPos = wrap_inner.scrollLeft();
+                    var c_wrap_inner = $('#c_wrap_inner');
+                    var leftPos = c_wrap_inner.scrollLeft();
                     var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
-                    wrap_inner.animate(
+                    c_wrap_inner.animate(
                         {scrollLeft: leftPos + img_width},
                         250,
                         function(){
@@ -305,10 +317,11 @@ function set_main_image(centipedejs){
     $(window).resize(function() {
         if($(window).width() <= '360') {
 
+
             $('.c_main .prev').on('click', function(){
 
-                var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
-                    slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+                var slide_src = $(this).siblings('#c_wrap_inner').find('img').attr('src'),
+                    slide_alt = $(this).siblings('#c_wrap_inner').find('img').attr('alt'),
                     sidebar = $('.c_thumbnails .c_item');
 
                 for(var i = 1; i <= sidebar.length; i++ ){
@@ -339,10 +352,10 @@ function set_main_image(centipedejs){
                         inner.width(img_width * img_count);
 
                         // ...set up the scrolling...
-                        var wrap_inner = $('#wrap_inner');
-                        var leftPos = wrap_inner.scrollLeft();
+                        var c_wrap_inner = $('#c_wrap_inner');
+                        var leftPos = c_wrap_inner.scrollLeft();
                         var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
-                        wrap_inner.animate(
+                        c_wrap_inner.animate(
                             {scrollLeft: leftPos - img_width},
                             250,
                             function(){
@@ -357,9 +370,10 @@ function set_main_image(centipedejs){
                 }
 
             });
+
             $('.c_main .next').on('click', function(){
-                var slide_src = $(this).siblings('#wrap_inner').find('img').attr('src'),
-                    slide_alt = $(this).siblings('#wrap_inner').find('img').attr('alt'),
+                var slide_src = $(this).siblings('#c_wrap_inner').find('img').attr('src'),
+                    slide_alt = $(this).siblings('#c_wrap_inner').find('img').attr('alt'),
                     sidebar = $('.c_thumbnails .c_item');
 
                 for(var i = 1; i <= sidebar.length; i++ ){
@@ -395,10 +409,10 @@ function set_main_image(centipedejs){
                         inner.width(img_width * img_count);
 
                         // ...set up the scrolling...
-                        var wrap_inner = $('#wrap_inner');
-                        var leftPos = wrap_inner.scrollLeft();
+                        var c_wrap_inner = $('#c_wrap_inner');
+                        var leftPos = c_wrap_inner.scrollLeft();
                         var app = '<div class="c_main_caption">' + c_main_caption + '</div>'
-                        wrap_inner.animate(
+                        c_wrap_inner.animate(
                             {scrollLeft: leftPos + img_width},
                             250,
                             function(){
@@ -416,5 +430,6 @@ function set_main_image(centipedejs){
 
         }
     });
+
 
 }

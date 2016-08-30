@@ -189,6 +189,14 @@ function change_image(centipedejs){
         $(this).addClass(centipedejs.active_class);
     });
 
+    $(window).resize(function() {
+        // recover main image size after window resize
+        var images = $("#c_inner img");
+        var img_count = images.length,
+            img_width = images.width();
+        inner.width(img_width * img_count);
+    });
+
 }
 
 function set_main_image(centipedejs){

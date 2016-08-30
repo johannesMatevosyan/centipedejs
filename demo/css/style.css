@@ -195,6 +195,7 @@ pre.cnt_code code .options_js_val{
     margin: 20px auto;
 }
 
+
 /* Slider */
 .c_left, .c_right{
     position: relative;
@@ -355,36 +356,39 @@ pre.cnt_code code .options_js_val{
     right: 0;
     background: url("../img/next-24.png") no-repeat;
 }
-.c_bottom .c_sidebar ul{
+.c_bottom .c_sidebar .c_thumbnails{
     overflow: hidden;
 }
-.c_bottom .c_sidebar ul .c_item{
+.c_bottom .c_sidebar .c_thumbnails .c_item{
     float: left;
     width: 120px;
     height: 83px;
     border: 4px solid #cc0;
     cursor: pointer;
+    overflow: hidden;
 }
 
 
-.c_left .c_sidebar ul .c_item,
-.c_right .c_sidebar ul .c_item{
+.c_left .c_sidebar .c_thumbnails .c_item,
+.c_right .c_sidebar .c_thumbnails .c_item{
     display: block;
     border: 4px solid #cc0;
     cursor: pointer;
+    height: 83px;
+    overflow: hidden;
 }
-.c_left .c_sidebar ul .c_item.c_active,
-.c_right .c_sidebar ul .c_item.c_active,
-.c_bottom .c_sidebar ul .c_item.c_active{
+.c_left .c_sidebar .c_thumbnails .c_item.c_active,
+.c_right .c_sidebar .c_thumbnails .c_item.c_active,
+.c_bottom .c_sidebar .c_thumbnails .c_item.c_active{
     border: 4px solid #c00;
 }
-.c_left .c_sidebar ul .c_item img,
-.c_right .c_sidebar ul .c_item img,
-.c_bottom .c_sidebar ul .c_item img{
+.c_left .c_sidebar .c_thumbnails .c_item img,
+.c_right .c_sidebar .c_thumbnails .c_item img,
+.c_bottom .c_sidebar .c_thumbnails .c_item img{
     display: block;
     width: 100%;
 }
-.c_sidebar ul .c_item .c_caption{
+.c_sidebar .c_thumbnails .c_item .c_caption{
     display: none;
 }
 
@@ -411,6 +415,10 @@ pre.cnt_code code .options_js_val{
     .c_left .c_sidebar,
     .c_right .c_sidebar{
         width: 89px;
+    }
+    .c_left .c_sidebar .c_thumbnails .c_item,
+    .c_right .c_sidebar .c_thumbnails .c_item{
+        height: 62px;
     }
     .c_left .c_sidebar_nav{
         left: 32.5px;
@@ -441,6 +449,10 @@ pre.cnt_code code .options_js_val{
     .c_left .c_sidebar,
     .c_right .c_sidebar {
         width: 67px;
+    }
+    .c_left .c_sidebar .c_thumbnails .c_item,
+    .c_right .c_sidebar .c_thumbnails .c_item{
+        height: 47px;
     }
     .c_left .c_sidebar_nav {
         left: 21px;
