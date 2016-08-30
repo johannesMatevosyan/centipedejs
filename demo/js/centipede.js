@@ -362,6 +362,7 @@ function set_main_image(centipedejs){
                 }
 
             });
+
             $('.c_main .next').on('click', function(){
                 var slide_src = $(this).siblings('#c_wrap_inner').find('img').attr('src'),
                     slide_alt = $(this).siblings('#c_wrap_inner').find('img').attr('alt'),
