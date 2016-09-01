@@ -1,4 +1,4 @@
-# Centipede jQuery Slideshow
+# CentipedeJS jQuery Slideshow
 
 <h2>Features</h2>
 <div class="section_content">
@@ -24,8 +24,7 @@
  <div class="section_content">
 
 <p class="how_to_use_desc">
-    First of all you need to locate image according to their sizes. Thus, large images should be grouped together in one folder whereas small images should be grouped into another.
-    After that the corresponding paths to those folders are needed. That's all :) <br>
+    CentipedeJS is a jQuery-plugin for slide show that allows to switch the position of sidebar. Thus, sidebar can be located from left, right and bottom sides of a main slider. That's all :) <br>
     In case you want to make some changes then the options are available below.
 </p>
 </div>
