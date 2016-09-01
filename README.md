@@ -8,7 +8,9 @@
         <li><span>Centipede does not contain a lot of functionality and it keeps the size small, only 6kb</span></li>
     </ul>
 </div>
-
+<div>
+   <img  src="https://cloud.githubusercontent.com/assets/2904795/18165832/9c766d56-7058-11e6-99c6-31fd549d5abe.gif" alt="Intro"> 
+</div>
 <h2>Browser support</h2>
 <div class="section_content">
     <ul class="browser_support_list">
