@@ -141,7 +141,5 @@ $(' #centipede ').centipede({
 </div>
 
 <div>
-<h3>Installation</h3>
-    <img src="https://cloud.githubusercontent.com/assets/2904795/18168404/80dce274-7066-11e6-8e09-fc2fe92d99aa.gif" alt="left">
-</div>
+
 
