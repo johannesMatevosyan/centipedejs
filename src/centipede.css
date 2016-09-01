@@ -292,12 +292,6 @@
     box-sizing: border-box;
 }
 
-
-
-
-
-@media screen and (max-width: 768px) {}
-
 @media screen and (max-width: 640px) {
     .c_left .c_main{
         padding-left: 95px;
