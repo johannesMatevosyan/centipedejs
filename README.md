@@ -132,3 +132,11 @@ $(' #centipede ').centipede({
     </tr>
 </table>
 
+<div>
+<h2>Change Sidebar's Position</h2>
+
+<p>The location of sidebar can easily be customized by changing it's position in options.</p>
+
+<img src="https://cloud.githubusercontent.com/assets/2904795/18168130/492c851a-7065-11e6-804f-4f37168cfefd.gif" alt="change position">
+</div>
+
