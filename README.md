@@ -102,7 +102,7 @@ Include the CSS at the top of your page in your tag:
 ```
 
 
-<h3>Options</h3>
+<h2>Options</h2>
    
 ```js
 
