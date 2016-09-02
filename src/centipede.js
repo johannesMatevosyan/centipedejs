@@ -56,7 +56,6 @@ function set_css(centipedejs){
         sidebar_item = $('.c_thumbnails .c_item'),
         def_caption,
         def_src = inner.find('img').attr('src');
-    //sidebar_item.first().addClass(centipedejs.active_class);
 
     sidebar_item.each(function(){
         // search caption for first image
