@@ -91,7 +91,6 @@ Include the CSS at the top of your page in your tag:
     </div>    
 
 ```
-
  Initialize Centipede.js
 
 ```js
